@@ -1,7 +1,7 @@
-'''
+"""
 加载MNIST数据集：返回训练集以及测试集
 X:(,1,28,28) Y:(,1)
-'''
+"""
 from chainer.datasets import mnist
 import numpy as np
 import matplotlib.pyplot as plt
@@ -34,4 +34,3 @@ def process_data(data):
     y = np.array(y)
 
     return x, y
-

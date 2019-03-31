@@ -1,7 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4c3e8a70-2c89-42c3-ba56-8f86c2dd3ed7" name="Default" comment="" />
+    <list default="true" id="4c3e8a70-2c89-42c3-ba56-8f86c2dd3ed7" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/branchynet/augment.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/branchynet/function.py" beforeDir="false" afterPath="$PROJECT_DIR$/branchynet/function.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/branchynet/links/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/branchynet/links/densespareselinear.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/branchynet/links/links.py" beforeDir="false" afterPath="$PROJECT_DIR$/branchynet/links.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/branchynet/links/sparselinear.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/branchynet/net.py" beforeDir="false" afterPath="$PROJECT_DIR$/branchynet/net.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/branchynet/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/branchynet/utils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/branchynet/visualize.py" beforeDir="false" afterPath="$PROJECT_DIR$/branchynet/visualize.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datasets/cifar10.py" beforeDir="false" afterPath="$PROJECT_DIR$/datasets/cifar10.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datasets/mnist.py" beforeDir="false" afterPath="$PROJECT_DIR$/datasets/mnist.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/experiments/alexnet_cifar10.py" beforeDir="false" afterPath="$PROJECT_DIR$/experiments/alexnet_cifar10.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/experiments/lenet_mnist.py" beforeDir="false" afterPath="$PROJECT_DIR$/experiments/lenet_mnist.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/experiments/resnet_cifar10.py" beforeDir="false" afterPath="$PROJECT_DIR$/experiments/resnet_cifar10.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/lenet_mnist.bn" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/networks/alexnet.py" beforeDir="false" afterPath="$PROJECT_DIR$/networks/alexnet.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/networks/lenet.py" beforeDir="false" afterPath="$PROJECT_DIR$/networks/lenet.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/networks/resblock.py" beforeDir="false" afterPath="$PROJECT_DIR$/networks/resblock.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/networks/resnet.py" beforeDir="false" afterPath="$PROJECT_DIR$/networks/resnet.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pic/lenet_gpu.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/LeNet.csv" beforeDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -10,12 +33,17 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/BranchyNet_chainer$alexnet_cifar10.coverage" NAME="alexnet_cifar10 Coverage Results" MODIFIED="1552964636101" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/experiments" />
+    <SUITE FILE_PATH="coverage/BranchyNet_chainer$alexnet_cifar10.coverage" NAME="alexnet_cifar10 Coverage Results" MODIFIED="1554036205036" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/experiments" />
     <SUITE FILE_PATH="coverage/BranchyNet_chainer$links.coverage" NAME="links Coverage Results" MODIFIED="1552545332981" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/branchynet/links" />
-    <SUITE FILE_PATH="coverage/BranchyNet_chainer$lenet_mnist.coverage" NAME="lenet_mnist Coverage Results" MODIFIED="1553074315709" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/experiments" />
-    <SUITE FILE_PATH="coverage/BranchyNet_chainer$mnist.coverage" NAME="mnist Coverage Results" MODIFIED="1552549550177" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/datasets" />
-    <SUITE FILE_PATH="coverage/BranchyNet_chainer$cifar10.coverage" NAME="cifar10 Coverage Results" MODIFIED="1552963598639" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/datasets" />
-    <SUITE FILE_PATH="coverage/BranchyNet_chainer$resnet_cifar10.coverage" NAME="resnet_cifar10 Coverage Results" MODIFIED="1553074458810" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/experiments" />
+    <SUITE FILE_PATH="coverage/BranchyNet_chainer$__init__.coverage" NAME="__init__ Coverage Results" MODIFIED="1553846162377" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/branchynet" />
+    <SUITE FILE_PATH="coverage/BranchyNet_chainer$__init____1_.coverage" NAME="__init__ (1) Coverage Results" MODIFIED="1553952920881" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/experiments" />
+    <SUITE FILE_PATH="coverage/BranchyNet_chainer$lenet_mnist.coverage" NAME="lenet_mnist Coverage Results" MODIFIED="1554031823382" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/experiments" />
+    <SUITE FILE_PATH="coverage/BranchyNet_chainer$__init____2_.coverage" NAME="__init__ (2) Coverage Results" MODIFIED="1554033090372" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/networks" />
+    <SUITE FILE_PATH="coverage/BranchyNet_chainer$visualize.coverage" NAME="visualize Coverage Results" MODIFIED="1554035009733" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/branchynet" />
+    <SUITE FILE_PATH="coverage/BranchyNet_chainer$cifar10.coverage" NAME="cifar10 Coverage Results" MODIFIED="1553838434676" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/datasets" />
+    <SUITE FILE_PATH="coverage/BranchyNet_chainer$mnist.coverage" NAME="mnist Coverage Results" MODIFIED="1553840133883" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/datasets" />
+    <SUITE FILE_PATH="coverage/BranchyNet_chainer$resnet_cifar10.coverage" NAME="resnet_cifar10 Coverage Results" MODIFIED="1553936363176" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/experiments" />
+    <SUITE FILE_PATH="coverage/BranchyNet_chainer$test.coverage" NAME="test Coverage Results" MODIFIED="1553930153888" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/experiments" />
   </component>
   <component name="DatabaseView">
     <option name="SHOW_INTERMEDIATE" value="true" />
@@ -31,27 +59,42 @@
     <expand />
     <select />
   </component>
+  <component name="FavoritesManager">
+    <favorites_list name="BranchyNet_chainer" />
+  </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="resnet_cifar10.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/experiments/resnet_cifar10.py">
+      <file leaf-file-name="visualize.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/branchynet/visualize.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="9" column="12" lean-forward="true" selection-start-line="9" selection-start-column="12" selection-end-line="9" selection-end-column="12" />
+            <state relative-caret-position="127">
+              <caret line="119" column="40" lean-forward="true" selection-start-line="119" selection-start-column="40" selection-end-line="119" selection-end-column="40" />
               <folding>
-                <element signature="e#42#79#0" expanded="true" />
+                <element signature="e#24#55#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="resnet.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/networks/resnet.py">
+      <file leaf-file-name="alexnet_cifar10.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/experiments/alexnet_cifar10.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-344">
-              <caret line="22" column="20" lean-forward="true" selection-start-line="22" selection-start-column="20" selection-end-line="22" selection-end-column="20" />
+            <state relative-caret-position="69">
+              <caret line="70" column="4" selection-start-line="70" selection-start-column="4" selection-end-line="70" selection-end-column="4" />
               <folding>
-                <element signature="e#39#75#0" expanded="true" />
+                <element signature="e#43#82#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="utils.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/branchynet/utils.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="125">
+              <caret line="97" selection-start-line="97" selection-end-line="97" />
+              <folding>
+                <element signature="e#20#48#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -60,29 +103,17 @@
       <file leaf-file-name="net.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/branchynet/net.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-125">
-              <caret line="13" column="8" selection-start-line="13" selection-start-column="8" selection-end-line="13" selection-end-column="8" />
+            <state relative-caret-position="194">
+              <caret line="105" selection-start-line="105" selection-end-line="105" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="links.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/branchynet/links/links.py">
+      <file leaf-file-name="alexnet.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/networks/alexnet.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
-              <caret line="25" selection-start-line="25" selection-end-line="25" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="resblock.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/networks/resblock.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="398">
-              <caret line="44" column="39" selection-start-line="44" selection-start-column="39" selection-end-line="44" selection-end-column="39" />
-              <folding>
-                <element signature="e#141#173#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="125">
+              <caret line="20" column="13" lean-forward="true" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -99,32 +130,40 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>cuda</find>
+      <find>plot_tradeoff</find>
     </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/branchynet/function.py" />
         <option value="$PROJECT_DIR$/branchynet/links/augment.py" />
         <option value="$PROJECT_DIR$/branchynet/links/densespareselinear.py" />
         <option value="$PROJECT_DIR$/branchynet/links/sparselinear.py" />
         <option value="$PROJECT_DIR$/networks/lenet_mnist.py" />
         <option value="$USER_HOME$/Anaconda3/Lib/site-packages/chainer/functions/evaluation/accuracy.py" />
-        <option value="$PROJECT_DIR$/experiments/__init__.py" />
-        <option value="$PROJECT_DIR$/branchynet/visualize.py" />
-        <option value="$PROJECT_DIR$/datasets/mnist.py" />
         <option value="$PROJECT_DIR$/networks/AlexNet.py" />
-        <option value="$PROJECT_DIR$/networks/lenet.py" />
-        <option value="$PROJECT_DIR$/networks/alexnet.py" />
-        <option value="$PROJECT_DIR$/datasets/cifar10.py" />
-        <option value="$PROJECT_DIR$/branchynet/utils.py" />
-        <option value="$PROJECT_DIR$/networks/resnet.py" />
         <option value="$PROJECT_DIR$/branchynet/links/links.py" />
-        <option value="$PROJECT_DIR$/experiments/alexnet_cifar10.py" />
-        <option value="$PROJECT_DIR$/branchynet/net.py" />
-        <option value="$PROJECT_DIR$/experiments/lenet_mnist.py" />
+        <option value="$PROJECT_DIR$/networks/lenet.py" />
+        <option value="$PROJECT_DIR$/branchynet/function.py" />
+        <option value="$PROJECT_DIR$/branchynet/links.py" />
+        <option value="$PROJECT_DIR$/datasets/cifar10.py" />
+        <option value="$PROJECT_DIR$/datasets/mnist.py" />
+        <option value="$PROJECT_DIR$/branchynet/__init__.py" />
+        <option value="$PROJECT_DIR$/experiments/test.py" />
         <option value="$PROJECT_DIR$/networks/resblock.py" />
+        <option value="$PROJECT_DIR$/networks/resnet.py" />
+        <option value="$PROJECT_DIR$/experiments/__init__.py" />
+        <option value="$PROJECT_DIR$/branchynet/utils.py" />
+        <option value="$PROJECT_DIR$/branchynet/net.py" />
+        <option value="$PROJECT_DIR$/networks/__init__.py" />
+        <option value="$PROJECT_DIR$/networks/alexnet.py" />
+        <option value="$PROJECT_DIR$/experiments/lenet_mnist.py" />
         <option value="$PROJECT_DIR$/experiments/resnet_cifar10.py" />
+        <option value="$PROJECT_DIR$/branchynet/visualize.py" />
+        <option value="$PROJECT_DIR$/experiments/alexnet_cifar10.py" />
       </list>
     </option>
   </component>
@@ -137,12 +176,13 @@
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths />
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
-    <option name="x" value="21" />
-    <option name="y" value="490" />
-    <option name="width" value="1358" />
-    <option name="height" value="577" />
+  <component name="ProjectFrameBounds" extendedState="7">
+    <option name="x" value="42" />
+    <option name="y" value="346" />
+    <option name="width" value="1174" />
+    <option name="height" value="735" />
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
@@ -155,11 +195,45 @@
               <item name="BranchyNet_chainer" type="b2602c69:ProjectViewProjectNode" />
               <item name="BranchyNet_chainer" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="BranchyNet_chainer" type="b2602c69:ProjectViewProjectNode" />
+              <item name="BranchyNet_chainer" type="462c0819:PsiDirectoryNode" />
+              <item name="branchynet" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="BranchyNet_chainer" type="b2602c69:ProjectViewProjectNode" />
+              <item name="BranchyNet_chainer" type="462c0819:PsiDirectoryNode" />
+              <item name="experiments" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="BranchyNet_chainer" type="b2602c69:ProjectViewProjectNode" />
+              <item name="BranchyNet_chainer" type="462c0819:PsiDirectoryNode" />
+              <item name="networks" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="BranchyNet_chainer" type="b2602c69:ProjectViewProjectNode" />
+              <item name="BranchyNet_chainer" type="462c0819:PsiDirectoryNode" />
+              <item name="pic" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
       <pane id="Scope">
+        <subPane subId="Changed Files">
+          <expand>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="BranchyNet_chainer" type="cbb8eebc:String" user="BranchyNet_chainer" />
+            </path>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="BranchyNet_chainer" type="cbb8eebc:String" user="BranchyNet_chainer" />
+              <item name="branchynet" type="cbb8eebc:String" user="branchynet" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
         <subPane subId="Project Files">
           <expand>
             <path>
@@ -171,6 +245,26 @@
               <item name="BranchyNet_chainer" type="cbb8eebc:String" user="BranchyNet_chainer" />
               <item name="datasets" type="cbb8eebc:String" user="datasets" />
             </path>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="BranchyNet_chainer" type="cbb8eebc:String" user="BranchyNet_chainer" />
+              <item name="pic" type="cbb8eebc:String" user="pic" />
+            </path>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="BranchyNet_chainer" type="cbb8eebc:String" user="BranchyNet_chainer" />
+              <item name="pic" type="cbb8eebc:String" user="pic" />
+              <item name="lenet_mnist" type="cbb8eebc:String" user="lenet_mnist" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+        <subPane subId="Default">
+          <expand>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="BranchyNet_chainer" type="cbb8eebc:String" user="BranchyNet_chainer" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -179,16 +273,17 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../BranchyNet" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\libra\PycharmProjects\BranchyNet_chainer\branchynet" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\libra\PycharmProjects\BranchyNet_chainer\datasets" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\libra\PycharmProjects\BranchyNet_chainer\branchynet" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -203,7 +298,45 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.resnet_cifar10">
+  <component name="RunManager" selected="Python.alexnet_cifar10">
+    <configuration name="__init__ (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="BranchyNet_chainer" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/experiments" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/experiments/__init__.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
+    <configuration name="__init__ (2)" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="BranchyNet_chainer" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/networks" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/networks/__init__.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
     <configuration name="alexnet_cifar10" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="BranchyNet_chainer" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -218,25 +351,6 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/experiments/alexnet_cifar10.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-    </configuration>
-    <configuration name="cifar10" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="BranchyNet_chainer" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/datasets" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/datasets/cifar10.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -261,7 +375,7 @@
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
     </configuration>
-    <configuration name="mnist" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="visualize" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="BranchyNet_chainer" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -269,52 +383,36 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/datasets" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/branchynet" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/datasets/mnist.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-    </configuration>
-    <configuration name="resnet_cifar10" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="BranchyNet_chainer" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/experiments" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/experiments/resnet_cifar10.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/branchynet/visualize.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
     </configuration>
     <list>
-      <item itemvalue="Python.mnist" />
+      <item itemvalue="Python.__init__ (1)" />
       <item itemvalue="Python.lenet_mnist" />
-      <item itemvalue="Python.cifar10" />
+      <item itemvalue="Python.__init__ (2)" />
       <item itemvalue="Python.alexnet_cifar10" />
-      <item itemvalue="Python.resnet_cifar10" />
+      <item itemvalue="Python.visualize" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.resnet_cifar10" />
-        <item itemvalue="Python.lenet_mnist" />
         <item itemvalue="Python.alexnet_cifar10" />
-        <item itemvalue="Python.cifar10" />
-        <item itemvalue="Python.mnist" />
+        <item itemvalue="Python.visualize" />
+        <item itemvalue="Python.__init__ (2)" />
+        <item itemvalue="Python.lenet_mnist" />
+        <item itemvalue="Python.__init__ (1)" />
       </list>
     </recent_temporary>
+  </component>
+  <component name="StructureViewFactory">
+    <option name="AUTOSCROLL_MODE" value="false" />
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -339,29 +437,32 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="21" y="490" width="1358" height="577" extended-state="0" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info anchor="bottom" id="TODO" order="10" weight="0.32838285" />
+      <window_info anchor="bottom" id="TODO" order="10" weight="0.32561985" />
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Python Console" order="12" weight="0.32838285" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.2072893" />
-      <window_info anchor="bottom" id="Terminal" order="11" weight="0.24422443" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.13174114" />
-      <window_info anchor="bottom" id="Docker" order="6" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="7" weight="0.32885906" />
+      <window_info anchor="bottom" id="Python Console" order="12" weight="0.32561985" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.16033058" />
+      <window_info anchor="bottom" id="Terminal" order="11" weight="0.2429752" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49754903" visible="true" weight="0.15658094" />
+      <window_info anchor="bottom" id="Docker" order="6" show_stripe_button="false" weight="0.32561985" />
       <window_info anchor="right" id="Database" order="3" weight="0.32980332" />
-      <window_info anchor="right" id="SciView" order="4" weight="0.2980333" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.35008374" />
+      <window_info anchor="right" id="SciView" order="4" weight="0.2912254" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.24962178" />
+      <window_info id="Favorites" order="2" sideWeight="0.502451" side_tool="true" weight="0.20801815" />
+      <window_info anchor="bottom" id="Debug" order="3" visible="true" weight="0.4181818" />
+      <window_info active="true" anchor="bottom" id="Concurrent Activities Diagram" order="13" visible="true" weight="0.37355372" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.35313532" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.35206613" />
       <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="right" id="Coverage" order="5" side_tool="true" />
     </layout>
     <layout-to-restore>
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -395,13 +496,6 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/branchynet/visualize.py</url>
-          <line>112</line>
-          <option name="timeStamp" value="27" />
-        </line-breakpoint>
-      </breakpoints>
       <default-breakpoints>
         <breakpoint type="python-exception">
           <properties notifyOnTerminate="true" exception="BaseException">
@@ -409,11 +503,31 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="32" />
+      <option name="time" value="65" />
     </breakpoint-manager>
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="evaluateExpression">
+      <expression>
+        <expression-string>(g_basediff / float(len(Y_test))) * 1000.</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>g_basediff = (g_basediff / float(len(Y_test))) * 1000.</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>g_basediff / float(len(Y_test))</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>float(len(Y_test))</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
       <expression>
         <expression-string>g_diffs</expression-string>
         <language-id>Python</language-id>
@@ -427,134 +541,10 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/datasets/mnist.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="350">
-          <caret line="14" column="1" selection-start-line="14" selection-start-column="1" selection-end-line="15" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Anaconda3/Lib/site-packages/chainer/datasets/_mnist_helper.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="282">
-          <caret line="52" column="37" selection-start-line="52" selection-start-column="37" selection-end-line="52" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Anaconda3/Lib/site-packages/chainer/datasets/mnist.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="54" column="15" selection-start-line="54" selection-start-column="15" selection-end-line="54" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Anaconda3/Lib/site-packages/chainer/datasets/tuple_dataset.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-268">
-          <caret line="29" column="8" selection-start-line="29" selection-start-column="8" selection-end-line="29" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Anaconda3/Lib/site-packages/numpy/core/shape_base.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1328">
-          <caret line="181" column="4" selection-start-line="181" selection-start-column="4" selection-end-line="181" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Anaconda3/Lib/inspect.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1400">
-          <caret line="1081" column="4" selection-start-line="1081" selection-start-column="4" selection-end-line="1081" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Anaconda3/Lib/copy.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="131" column="4" selection-start-line="131" selection-start-column="4" selection-end-line="131" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Anaconda3/Lib/site-packages/chainer/functions/activation/relu.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1971">
-          <caret line="150" column="4" selection-start-line="150" selection-start-column="4" selection-end-line="150" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Anaconda3/Lib/site-packages/chainer/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="237">
-          <caret line="102" selection-start-line="102" selection-end-line="102" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Anaconda3/Lib/site-packages/chainer/functions/connection/convolution_2d.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="104">
-          <caret line="18" selection-start-line="18" selection-end-line="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Anaconda3/Lib/site-packages/chainer/utils/argument.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="25">
-          <caret line="19" selection-start-line="19" selection-end-line="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Anaconda3/Lib/site-packages/numpy/core/fromnumeric.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="123">
-          <caret line="2956" selection-start-line="2956" selection-end-line="2956" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Anaconda3/Lib/site-packages/cupy/cuda/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2890" />
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Anaconda3/Lib/site-packages/cupy/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="122">
-          <caret line="692" column="4" selection-start-line="692" selection-end-line="692" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.PyCharm2018.1/system/python_stubs/-1432933343/numpy/random/mtrand.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="131">
-          <caret line="1784" column="65" lean-forward="true" selection-start-line="1784" selection-start-column="20" selection-end-line="1784" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Anaconda3/Lib/site-packages/chainer/functions/activation/softmax.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="148">
-          <caret line="117" selection-start-line="117" selection-end-line="117" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.PyCharm2018.1/system/python_stubs/-1432933343/numpy/core/multiarray.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-275">
-          <caret line="3573" column="8" selection-start-line="3573" selection-start-column="8" selection-end-line="3573" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/Anaconda3/Lib/site-packages/chainer/functions/pooling/pooling_2d.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="107">
           <caret line="11" selection-start-line="11" selection-end-line="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Anaconda3/Lib/site-packages/chainer/link.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="82">
-          <caret line="592" column="11" selection-start-line="592" selection-start-column="11" selection-end-line="592" selection-end-column="55" />
         </state>
       </provider>
     </entry>
@@ -586,13 +576,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/branchynet/links/sparselinear.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2374">
-          <caret line="105" column="46" lean-forward="true" selection-start-line="105" selection-start-column="46" selection-end-line="105" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/Anaconda3/Lib/site-packages/chainer/functions/pooling/max_pooling_2d.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="115">
@@ -621,13 +604,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/Anaconda3/Lib/site-packages/matplotlib/pyplot.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="351">
-          <caret line="3080" column="4" selection-start-line="3080" selection-start-column="4" selection-end-line="3080" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/Anaconda3/Lib/site-packages/cupy/creation/from_data.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="262">
@@ -636,132 +612,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/results/LeNet" />
-    <entry file="file://$USER_HOME$/.PyCharm2018.1/system/python_stubs/-1432933343/builtins.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-575">
-          <caret line="339" column="4" selection-start-line="339" selection-start-column="4" selection-end-line="339" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/datasets/mnist.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/datasets/cifar10.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="254">
-          <caret line="34" selection-start-line="34" selection-end-line="34" />
-          <folding>
-            <element signature="e#47#81#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/branchynet/links/densespareselinear.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-375">
-          <caret selection-end-line="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Anaconda3/Lib/site-packages/chainer/links/connection/convolution_2d.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="25">
-          <caret line="115" column="8" selection-start-line="115" selection-start-column="8" selection-end-line="115" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/networks/alexnet.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="201">
-          <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
-          <folding>
-            <element signature="e#38#74#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/experiments/alexnet_cifar10.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="43" column="25" selection-start-line="43" selection-start-column="25" selection-end-line="43" selection-end-column="25" />
-          <folding>
-            <element signature="e#42#79#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/branchynet/visualize.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="43">
-          <caret line="13" column="4" selection-start-line="13" selection-start-column="4" selection-end-line="13" selection-end-column="4" />
-          <folding>
-            <element signature="e#23#54#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/networks/lenet.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-125">
-          <caret line="11" column="33" selection-start-line="11" selection-start-column="32" selection-end-line="11" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/branchynet/utils.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1571">
-          <caret line="256" column="47" selection-start-line="256" selection-start-column="47" selection-end-line="256" selection-end-column="47" />
-          <folding>
-            <element signature="e#18#46#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Anaconda3/Lib/site-packages/chainer/backends/cuda.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="527" column="4" selection-start-line="527" selection-start-column="4" selection-end-line="527" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/experiments/lenet_mnist.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="172">
-          <caret line="52" lean-forward="true" selection-start-line="52" selection-end-line="52" />
-          <folding>
-            <element signature="e#41#78#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/branchynet/net.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-125">
-          <caret line="13" column="8" selection-start-line="13" selection-start-column="8" selection-end-line="13" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/branchynet/links/links.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="25" selection-start-line="25" selection-end-line="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/networks/resnet.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-344">
-          <caret line="22" column="20" lean-forward="true" selection-start-line="22" selection-start-column="20" selection-end-line="22" selection-end-column="20" />
-          <folding>
-            <element signature="e#39#75#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/Anaconda3/Lib/site-packages/chainer/functions/pooling/average_pooling_2d.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="89">
@@ -769,36 +619,252 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/networks/resblock.py">
+    <entry file="file://$PROJECT_DIR$/branchynet/augment.py" />
+    <entry file="file://$PROJECT_DIR$/branchynet/links/sparselinear.py" />
+    <entry file="file://$PROJECT_DIR$/branchynet/links/densespareselinear.py" />
+    <entry file="file://$USER_HOME$/Anaconda3/Lib/site-packages/cupy/math/sumprod.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="398">
-          <caret line="44" column="39" selection-start-line="44" selection-start-column="39" selection-end-line="44" selection-end-column="39" />
-          <folding>
-            <element signature="e#141#173#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="25">
+          <caret line="9" column="4" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="4" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/branchynet/augment.py">
+    <entry file="file://$USER_HOME$/Anaconda3/Lib/site-packages/chainer/backends/cuda.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="725">
-          <caret line="66" selection-start-line="66" selection-end-line="66" />
+        <state relative-caret-position="-725">
+          <caret line="472" column="4" selection-start-line="472" selection-start-column="4" selection-end-line="472" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.PyCharm2018.1/system/python_stubs/-1432933343/scipy/special/_ufuncs.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-22">
+          <caret line="1321" column="4" selection-start-line="1321" selection-start-column="4" selection-end-line="1321" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Anaconda3/Lib/site-packages/scipy/stats/_distn_infrastructure.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="78">
+          <caret line="2509" column="16" selection-start-line="2509" selection-start-column="16" selection-end-line="2509" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Anaconda3/Lib/site-packages/dill/_dill.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="155">
+          <caret line="473" selection-start-line="473" selection-end-line="473" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/lenet_mnist.bn" />
+    <entry file="file://$USER_HOME$/.PyCharm2018.1/system/python_stubs/-1432933343/time.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="167">
+          <caret line="232" column="34" lean-forward="true" selection-start-line="232" selection-start-column="31" selection-end-line="232" selection-end-column="34" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/branchynet/function.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="350">
-          <caret line="14" selection-start-line="14" selection-end-line="14" />
+        <state relative-caret-position="50">
+          <caret line="2" column="3" selection-start-line="2" selection-start-column="3" selection-end-line="2" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/datasets/cifar10.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-387">
+          <caret line="3" column="3" selection-start-line="3" selection-start-column="3" selection-end-line="3" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/datasets/mnist.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="313">
+          <caret line="36" lean-forward="true" selection-start-line="36" selection-end-line="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Anaconda3/Lib/site-packages/pydot/graphviz.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1113">
+          <caret line="319" column="4" selection-start-line="319" selection-start-column="4" selection-end-line="319" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Anaconda3/Lib/site-packages/chainer/link.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="25">
+          <caret line="1003" column="6" selection-start-line="1003" selection-start-column="6" selection-end-line="1003" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Anaconda3/Lib/site-packages/chainer/computational_graph.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1100">
+          <caret line="121" column="56" selection-start-line="121" selection-start-column="42" selection-end-line="121" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.PyCharm2018.1/system/python_stubs/-1432933343/builtins.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="25">
+          <caret line="245" column="4" selection-start-line="245" selection-start-column="4" selection-end-line="245" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Anaconda3/Lib/site-packages/chainer/links/connection/convolution_2d.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-750">
+          <caret line="115" column="8" selection-start-line="115" selection-start-column="8" selection-end-line="115" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Anaconda3/Lib/site-packages/keras/utils/vis_utils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-27">
+          <caret line="75" column="70" lean-forward="true" selection-start-line="72" selection-start-column="7" selection-end-line="75" selection-end-column="70" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/experiments/test.py" />
+    <entry file="file://$PROJECT_DIR$/networks/lenet.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-475">
+          <caret line="20" column="52" selection-start-line="20" selection-start-column="52" selection-end-line="20" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Anaconda3/Lib/site-packages/chainer/links/normalization/batch_normalization.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4325">
+          <caret line="189" column="8" selection-start-line="189" selection-start-column="8" selection-end-line="189" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/networks/resnet.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1323">
+          <caret line="58" lean-forward="true" selection-start-line="58" selection-end-line="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/networks/resblock.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="18" column="42" lean-forward="true" selection-start-line="18" selection-start-column="42" selection-end-line="18" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pic/lenet_mnist/lenet_gpu(10).png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/branchynet/links.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="44" column="8" selection-start-line="44" selection-start-column="8" selection-end-line="44" selection-end-column="8" />
+          <folding>
+            <element signature="e#85#99#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Anaconda3/Lib/site-packages/matplotlib/figure.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-477">
+          <caret line="1322" column="8" selection-start-line="1322" selection-start-column="8" selection-end-line="1322" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Anaconda3/Lib/site-packages/matplotlib/legend.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="248">
+          <caret line="292" column="55" selection-start-line="292" selection-start-column="55" selection-end-line="292" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/networks/__init__.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$USER_HOME$/Anaconda3/Lib/site-packages/numpy/core/function_base.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1250">
+          <caret line="24" column="4" selection-start-line="24" selection-start-column="4" selection-end-line="24" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Anaconda3/Lib/site-packages/matplotlib/pyplot.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="3260" column="19" selection-start-line="3260" selection-start-column="19" selection-end-line="3260" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Anaconda3/Lib/site-packages/matplotlib/axes/_axes.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2168">
+          <caret line="1277" column="28" lean-forward="true" selection-start-line="1277" selection-start-column="28" selection-end-line="1277" selection-end-column="40" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/experiments/resnet_cifar10.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="9" column="12" lean-forward="true" selection-start-line="9" selection-start-column="12" selection-end-line="9" selection-end-column="12" />
+        <state relative-caret-position="114">
+          <caret line="83" column="29" lean-forward="true" selection-start-line="83" selection-start-column="29" selection-end-line="83" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/branchynet/net.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="194">
+          <caret line="105" selection-start-line="105" selection-end-line="105" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/networks/alexnet.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="125">
+          <caret line="20" column="13" lean-forward="true" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/branchynet/utils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="125">
+          <caret line="97" selection-start-line="97" selection-end-line="97" />
           <folding>
-            <element signature="e#42#79#0" expanded="true" />
+            <element signature="e#20#48#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/experiments/lenet_mnist.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="227">
+          <caret line="83" column="17" selection-start-line="83" selection-start-column="17" selection-end-line="83" selection-end-column="17" />
+          <folding>
+            <element signature="e#42#81#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/experiments/alexnet_cifar10.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="69">
+          <caret line="70" column="4" selection-start-line="70" selection-start-column="4" selection-end-line="70" selection-end-column="4" />
+          <folding>
+            <element signature="e#43#82#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/branchynet/visualize.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="127">
+          <caret line="119" column="40" lean-forward="true" selection-start-line="119" selection-start-column="40" selection-end-line="119" selection-end-column="40" />
+          <folding>
+            <element signature="e#24#55#0" expanded="true" />
           </folding>
         </state>
       </provider>

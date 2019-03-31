@@ -1,10 +1,11 @@
-'''
+"""
 BranchyNet网络模型构造
-'''
+"""
 
 from branchynet.function import *
-from branchynet.links.links import *
-from chainer import Variable,optimizers
+from branchynet.links import *
+from chainer import Variable, optimizers
+from scipy.stats import entropy
 import cupy
 import numpy as np
 import time
@@ -14,39 +15,42 @@ class BranchyNet:
     def __init__(self, network, thresholdExits=None, percentTestExits=.9, percentTrianKeeps=1., learning_rate=0.1,
                  momentum=0.9,
                  weight_decay=0.0001, alpha=0.001, opt="Adam", joint=True, verbose=False):
+
         self.opt = opt  # 优化器
         self.alpha = alpha  # 参数
-        self.weight_decay = weight_decay  # 权重衰减
+        self.weight_decay = weight_decay  # 权重衰减率
         self.momentum = momentum  # 动量
         self.learning_rate = learning_rate  # 学习率
         self.joint = joint
         self.forwardMain = None  # 主网络前向传播
 
-        self.main = Net()
-        self.models = []
+        self.main = Net()  # 主网络
+        self.models = []  # 分支网络列表
         starti = 0
-        curri = 0
+        curri = 0  # 当前所指网络层的指针
         for link in network:
-            # 如果该层不在分支层，则将其添加到分支网络
+            # 如果该层不是分支网络，则将其添加到主网络
             if not isinstance(link, Branch):
                 curri += 1
                 self.main.add_link(link)
             else:
+                # 若该层是分支网络，则新建分支网络
                 net = Net(link.weight)
                 net.starti = starti
                 starti = curri
                 net.endi = curri
-                # 添加分支层前的网络
+                # 分支网络模型中添加分支层前的主网络层
                 for prevlink in self.main:
                     newlink = copy.deepcopy(prevlink)
                     newlink.name = None
                     net.add_link(newlink)
-                # 添加分支网络层
+                # 分支网络模型中添加分支网络层
                 for branchlink in link:
                     newlink = copy.deepcopy(branchlink)
                     newlink.name = None
                     net.add_link(newlink)
                 self.models.append(net)
+        # 将最后一个分支网络层同时添加到主网络中
         for branchlink in link:
             newlink = copy.deepcopy(branchlink)
             newlink.name = None
@@ -57,6 +61,8 @@ class BranchyNet:
             self.optimizer = optimizers.MomentumSGD(learning_rate=self.learning_rate, momentum=self.momentum)
         else:
             self.optimizer = optimizers.Adam(alpha=self.alpha)
+
+        # 主网络启动优化器
         self.optimizer.setup(self.main)
 
         if self.opt == 'MomentumSGD':
@@ -64,6 +70,7 @@ class BranchyNet:
 
         self.optimizers = []
 
+        # 各分支网络中启动优化器
         for model in self.models:
             if self.opt == 'MomentumSGD':
                 optimizer = optimizers.MomentumSGD(learning_rate=self.learning_rate, momentum=0.9)
@@ -134,16 +141,16 @@ class BranchyNet:
         for model in self.models:
             model.to_cpu()
 
-    # 深化主网络上的copy操作
+    # 复制主网络层
     def copy_main(self):
         self.main_copy = copy.deepcopy(self.main)
         return
 
-    # 复制主网络层运行函数
+    # 复制的主网络层运行函数
     def train_main_copy(self, x, t=None):
         return self.train_model(self.main_copy, x, t)
 
-    # 复制主网络层测试函数
+    # 复制的主网络层测试函数
     def test_main_copy(self, x, t=None):
         return self.test_model(self.main_copy, x, t)
 
@@ -161,7 +168,7 @@ class BranchyNet:
 
     # 主网络模型训练
     def train_model(self, model, x, t=None):
-        self.main.cleargrads()
+        self.main.cleargrads()  # 主网络梯度值重置
         loss = self.main.train(x, t)  # 获取模型训练损失函数
         accuracy = self.main.accuracy  # 获取模型训练准确率
         loss.backward()  # 通过loss损失函数进行后向传递
@@ -206,6 +213,7 @@ class BranchyNet:
                 for j, modellink in enumerate(model[:model.endi]):
                     if i == j:
                         modellink.copyparams(link)
+                        break
 
         # 参数重置
         self.main.cleargrads()
@@ -364,6 +372,7 @@ class BranchyNet:
         nummodels = len(self.models)  # 分支网络总数
         numsamples = x.data.shape[0]  # 总测试样本数
         totaltime = 0  # 总测试时间
+        max_entropy = 0  # 第一个退出点的最大信息熵
 
         for i, model in enumerate(self.models):
 
@@ -413,6 +422,13 @@ class BranchyNet:
             numkeep = total - numexit
             numexits.append(numexit)
 
+            # 获取该批测试样本集在第一个退出点的最大信息熵
+            if i == 0:
+                for j, value in enumerate(entropy_value):
+                    if idx[j]:
+                        if value > max_entropy:
+                            max_entropy = value
+
             if self.gpu:
                 xdata = h.data.get()
                 tdata = remainingTVar.data.get()
@@ -459,182 +475,15 @@ class BranchyNet:
             print("accuracies", accuracies)
             print("overall accuracy", overall)
 
-        return overall, accuracies, numexits, totaltime
+        return overall, accuracies, numexits, totaltime, max_entropy
 
-    # 主网络运行数据统计
-    def run_main(self, x):
-        totaltime = 0
-        start_time = time.time()
-        h = self.main.test(x)
-        end_time = time.time()
-        totaltime += end_time - start_time
-        self.num_exits = [len(x.data)]
-        self.runtime = totaltime
-        return h.data
-
-    # 运行过程
-    def run(self, x, t):
-        hs = []
-        numexits = []
-        accuracies = []
-        remainingXVar = x
-        remainingTVar = t
-        nummodels = len(self.models)
-        numsamples = x.data.shape[0]
-
-        totaltime = 0
-        for i, model in enumerate(self.models):
-            if isinstance(remainingXVar, type(None)) or isinstance(remainingTVar, type(None)):
-                break
-
-            start_time = time.time()
-            h = model.test(remainingXVar, model.starti, model.endi)
-            end_time = time.time()
-            totaltime += end_time - start_time
-
-            smh = model.test(h, model.endi)
-            softmax = F.softmax(smh)
-            if self.gpu:
-                entropy_value = entropy_gpu(softmax).get()
-            else:
-                entropy_value = np.array([entropy(s) for s in softmax.data])
-
-            # 判断当前出口点的熵，若小于阈值，则提前退出，否则继续到下一个退出点
-            idx = np.zeros(entropy_value.shape[0], dtype=bool)
-            if i == nummodels - 1:
-                idx = np.ones(entropy_value.shape[0], dtype=bool)
-                numexit = sum(idx)
-            else:
-                if self.thresholdExits is not None:
-                    min_ent = 0
-                    if isinstance(self.thresholdExits, list):
-                        idx[entropy_value < min_ent + self.thresholdExits[i]] = True
-                        numexit = sum(idx)
-                    else:
-                        idx[entropy_value < min_ent + self.thresholdExits] = True
-                        numexit = sum(idx)
-                else:
-                    if isinstance(self.percentTestExits, list):
-                        numexit = int((self.percentTestExits[i]) * numsamples)
-                    else:
-                        numexit = int(self.percentTestExits * entropy_value.shape[0])
-                    esorted = entropy_value.argsort()
-                    idx[esorted[:numexit]] = True
-
-            total = entropy_value.shape[0]
-            numkeep = total - numexit
-            numexits.append(numexit)
-
-            if self.gpu:
-                xdata = h.data.get()
-                tdata = remainingTVar.data.get()
-            else:
-                xdata = h.data
-                tdata = remainingTVar.data
-
-            if numkeep > 0:
-                xdata_keep = xdata[~idx]
-                tdata_keep = tdata[~idx]
-                remainingXVar = Variable(self.xp.array(xdata_keep, dtype=x.data.dtype), volatile=x.volatile)
-                remainingTVar = Variable(self.xp.array(tdata_keep, dtype=t.data.dtype), volatile=t.volatile)
-            else:
-                remainingXVar = None
-                remainingTVar = None
-
-            if numexit > 0:
-                xdata_exit = xdata[idx]
-                tdata_exit = tdata[idx]
-                exitXVar = Variable(self.xp.array(xdata_exit, dtype=x.data.dtype), volatile=x.volatile)
-                exitTVar = Variable(self.xp.array(tdata_exit, dtype=t.data.dtype), volatile=t.volatile)
-
-                exitH = model.test(exitXVar, model.endi)
-                hs.append(exitH.data)
-
-        self.num_exits = numexits
-        self.runtime = totaltime
-        return np.vstack(hs)
-
-    # 获取退出点的信息熵
-    def get_SM(self, x):
-        numexits = []
-        accuracies = []
-        nummodels = len(self.models)
-        numsamples = x.data.shape[0]
-        exitHs = []
-        h = x
-
-        for i, model in enumerate(self.models):
-            h = model.test(h, model.starti, model.endi)
-            smh = model.test(h, model.endi)
-            softmax = F.softmax(smh)
-            exitHs.append(softmax.data)
-
-        return exitHs
-
-    # 获取退出点的阈值
-    def find_thresholds_entropies(self, x_train, y_train, percentTrainKeeps=0.5, batchsize=1024):
-        datasize = x_train.shape[0]
-        nummodels = len(self.models) - 1
-        thresholds = np.zeros(nummodels)
-        entropy_values = [np.array([]) for i in range(nummodels)]
-
-        for i in range(0, datasize, batchsize):
-            input_data = x_train[i:i + batchsize]
-            label_data = y_train[i:i + batchsize]
-
-            input_data = self.xp.asarray(input_data, dtype=self.xp.float32)
-            label_data = self.xp.asarray(label_data, dtype=self.xp.int32)
-
-            x = Variable(input_data)
-            t = Variable(label_data)
-
-            # 向前传递获取信息熵和滤波器
-            remainingXVar = x
-            remainingTVar = t
-            numsamples = x.data.shape[0]
-            for i, model in enumerate(self.models[:-1]):
-                if isinstance(remainingXVar, type(None)) or isinstance(remainingTVar, type(None)):
-                    break
-                loss = model.train(remainingXVar, remainingTVar)
-                softmax = F.softmax(model.h)
-                if self.gpu:
-                    entropy_value = entropy_gpu(softmax).get()
-                else:
-                    entropy_value = np.array([entropy(s) for s in softmax.data])
-
-                entropy_values[i] = np.hstack([entropy_values[i], entropy_value])
-
-        for i, entropy_value in enumerate(entropy_values):
-            idx = np.zeros(entropy_value.shape[0], dtype=bool)
-            total = entropy_value.shape[0]
-            if isinstance(percentTrainKeeps, list):
-                numkeep = percentTrainKeeps[i] * numsamples
-            else:
-                numkeep = percentTrainKeeps * total
-            numexit = int(total - numkeep)
-            esorted = entropy_value.argsort()
-            thresholds[i] = entropy_value[esorted[numexit]]
-
-        return thresholds.tolist(), entropy_value
-
-    def find_thresholds(self, x_train, y_train, percentTrainKeeps=0.5, batchsize=1024):
-        thresholds, _ = self.find_thresholds_entropies(x_train, y_train, percentTrainKeeps=percentTrainKeeps,
-                                                       batchsize=batchsize)
-        return thresholds
-
-    def find_entropies(self, x_train, y_train, percentTrainKeeps=0.5, batchsize=1024):
-        _, entropies = self.find_thresholds_entropies(x_train, y_train, percentTrainKeeps=percentTrainKeeps,
-                                                      batchsize=batchsize)
-        return entropies
-
-
-# 网络模型结构的输出
-def print_models(self):
-    for model in self.models:
-        print("----", model.starti, model.endi)
-        for link in model:
+    # 网络模型结构的输出
+    def print_models(self):
+        for model in self.models:
+            print("----", model.starti, model.endi)
+            for link in model:
+                print(link)
+        print("----", self.main.starti, model.endi)
+        for link in self.main:
             print(link)
-    print("----", self.main.starti, model.endi)
-    for link in self.main:
-        print(link)
-    print("----")
+        print("----")

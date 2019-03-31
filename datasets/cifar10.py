@@ -1,7 +1,7 @@
-'''
+"""
 加载cifar10图像数据集，返回训练集以及测试集
 X(,,,,) Y(,)
-'''
+"""
 from chainer.datasets import cifar
 import numpy as np
 import matplotlib.pyplot as plt
@@ -31,4 +31,3 @@ def process_data(data):
     y = np.array(y)
 
     return x, y
-
