@@ -37,18 +37,11 @@ def plot_line_tradeoff(accs, diffs, ps, exits, baseacc, basediff, orig_label='Ba
                        our_label='Our Method',
                        xlabel='Runtime (s)', ylabel='Classification Accuracy', all_samples=False, knee_idx=None,
                        xlim=None, ylim=None, inc_amt=-0.0005, output_path=None, output_name=None):
-    matplotlib.rcParams.update({'axes.labelsize': 10,
-                                'text.fontsize': 18,
-                                'legend.fontsize': 15,
-                                'xtick.labelsize': 13,
-                                'ytick.labelsize': 13,
-                                'axes.labelsize': 18,
-                                'text.usetex': False,
-                                'figure.figsize': [4.5, 3.5]})
-
-    matplotlib.rcParams['legend.numpoints'] = 1
-    matplotlib.rcParams['pdf.fonttype'] = 42
-    matplotlib.rcParams['ps.fonttype'] = 42
+    font = {'family': 'sans-serif',
+            'weight': 'normal',
+            'size': 18}
+    matplotlib.rc('font', **font)
+    plt.figure(figsize=(12, 10))
 
     # 获取准确率与运行时间成正比例关系的数据列表
     inc_accs, inc_rts, _, _ = utils.get_inc_points(accs, diffs, ps, exits, inc_amt=inc_amt)
@@ -124,7 +117,7 @@ def plot_acc_entropy_exit(accs, exits, entropies, xlabel='Samples Exited at 1st 
     plt.show()
 
 
-# 绘制网络模型的最后一个分支网络准确率与第一个分支网络卷积层数的变化关系图
+# 绘制网络模型的总网络准确率与第一个分支网络卷积层数的变化关系图
 def plot_acc_layers(accs, xlabel='Conv Layers in 1st Branch',
                     ylabel='Classification Accuracy', save_path=None, save_name=None):
     font = {'family': 'sans-serif',
@@ -132,7 +125,7 @@ def plot_acc_layers(accs, xlabel='Conv Layers in 1st Branch',
             'size': 18}
     matplotlib.rc('font', **font)
 
-    plt.plot( accs, '-o')
+    plt.plot(accs, '-o')
     plt.xlabel(xlabel)
     plt.ylabel(ylabel)
 
@@ -141,4 +134,3 @@ def plot_acc_layers(accs, xlabel='Conv Layers in 1st Branch',
         plt.savefig(save_path + save_name + '.png')
 
     plt.show()
-

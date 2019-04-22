@@ -13,11 +13,12 @@ branchyNet.training()
 branchyNet.verbose = True
 
 # 参数设置
-TRAIN_BATCHSIZE = 32
-TEST_BATCHSIZE = 128
-TRAIN_NUM_EPOCHES = 1
+TRAIN_BATCHSIZE = 128
+TEST_BATCHSIZE = 16
+TRAIN_NUM_EPOCHES = 100
 SAVE_PATH = '../pic/resnet_cifar10/'  # 实验结果图片保存路径
 MODEL_NAME = '../models/resnet_cifar10(' + str(TRAIN_NUM_EPOCHES) + ').bn'  # 保存模型名称
+MAIN_MODEL_NAME = '../models/main_resnet_cifar10(' + str(TRAIN_NUM_EPOCHES) + ').bn'
 CSV_NAME = 'resnet(' + str(TRAIN_NUM_EPOCHES) + ')'  # 输出文件名称
 
 # 导入cifar10数据集
@@ -39,6 +40,9 @@ visualize.plot_layers(main_acc, save_path=SAVE_PATH,
                       save_name='main_acc(' + str(TRAIN_NUM_EPOCHES) + ')',
                       xlabel='Epoches', ylabel='Training Accuracy')
 
+# 加载已经保存好的模型
+with open(MAIN_MODEL_NAME, "rb") as f:
+    branchyNet = dill.load(f)
 # 在带有分支的网络上进行训练
 branch_loss, branch_acc, branch_time = utils.train(branchyNet, X_train, Y_train, batchsize=TRAIN_BATCHSIZE,
                                                    num_epoch=TRAIN_NUM_EPOCHES)
@@ -78,9 +82,6 @@ g_ts, g_accs, g_diffs, g_exits, g_entropies = utils.screen_branchy(branchyNet, X
 
 g_diffs *= 1000.
 
-# 绘制网络的总体准确率、第一个退出点样本最大信息熵与第一个退出点退出样本比例的变化关系图
-visualize.plot_acc_entropy_exit(g_accs, g_exits, g_entropies, save_path=SAVE_PATH,
-                                save_name='resnet_branch1(' + str(TRAIN_NUM_EPOCHES) + ')')
 # 显示原始网络与带有分支的网络测试精度与运行时间的关系图
 visualize.plot_line_tradeoff(g_accs, g_diffs, g_ts, g_exits, g_baseacc, g_basediff,
                              all_samples=False, inc_amt=0.0001, our_label='BranchyResNet',
@@ -93,3 +94,10 @@ utils.branchy_save_csv(g_baseacc, g_basediff, g_accs, g_diffs, g_exits, g_ts, fi
 # 退出点阈值和退出样本数比例）
 print("GPU Results:")
 utils.branchy_table_results(filename=CSV_NAME)
+
+# 显示网络的总体准确率、第一个退出点样本最大信息熵与第一个退出点退出样本比例的变化关系图
+g_ts, g_accs, g_diffs, g_exits, g_entropies = utils.screen_branchy(branchyNet, X_test, Y_test, thresholds,
+                                                                   batchsize=TEST_BATCHSIZE, enumerate_ts=False,
+                                                                   verbose=True)
+visualize.plot_acc_entropy_exit(g_accs, g_exits, g_entropies, save_path=SAVE_PATH,
+                                save_name='alexnet_branch1(' + str(TRAIN_NUM_EPOCHES) + ')')

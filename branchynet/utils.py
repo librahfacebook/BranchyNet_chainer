@@ -92,7 +92,8 @@ def test(branchyNet, x_test, y_test=None, batchsize=10000, main=False):
                 # 在主网络下进行测试，返回结果为准确率以及测试时间
                 acc, diff = branchyNet.test_main(x, t)
             else:
-                # 在带有分支网络的模型下进行测试，返回结果为总体准确率，每个退出点的准确率以及测试样本数量，和该批测试样本测试时间
+                # 在带有分支网络的模型下进行测试，返回结果为总体准确率，每个退出点的准确率以及退出样本数量，
+                # 和该批测试样本测试时间、第一个退出点的信息熵
                 acc, accuracies, test_exits, diff, entropy = branchyNet.test(x, t)
                 # 获取每个退出点的退出测试样本数
                 for i, exits in enumerate(test_exits):
@@ -136,11 +137,12 @@ def test_suite_B(branchyNet, x_test, y_test, batchsize=10000, ps=np.linspace(0.1
 
 # 根据退出点阈值来获取代入单个退出点阈值的网络测试准确率、测试时间以及退出点样本数（带分支网络）
 def screen_branchy(branchyNet, x_test, y_test, base_ts, batchsize=1, enumerate_ts=True, verbose=False):
-    # 生成退出点的阈值列表
+    # 生成关于所有退出点的阈值列表
     if enumerate_ts:
         ts = generate_thresholds(base_ts, branchyNet.numexits())
+    # 只设置第一个推出点的阈值
     else:
-        ts = base_ts
+        ts = generate_threshold1(base_ts, branchyNet.numexits())
 
     # 对于阈值列表中的每一个阈值分别进行测试
     ts, accs, diffs, exits, max_entropies = test_suite_B(branchyNet, x_test, y_test, batchsize=batchsize, ps=ts)
@@ -153,6 +155,18 @@ def generate_thresholds(base_ts, num_layers):
     ts = list(product(*([base_ts] * (num_layers - 1))))
     ts = [list(l) for l in ts]
 
+    return ts
+
+
+# 只设置第一个推出点的阈值,其他退出点阈值为0
+def generate_threshold1(base_ts, num_layers):
+    ts = list()
+    for threshold in base_ts:
+        ts_exit = list()
+        ts_exit.append(threshold)
+        for i in range(num_layers - 2):
+            ts_exit.append(0)
+        ts.append(ts_exit)
     return ts
 
 

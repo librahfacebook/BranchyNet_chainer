@@ -1,0 +1,173 @@
+#the create for B-LeNet
+name: "B-LeNet"
+input: "input"
+input_shape {
+  dim: 512
+  dim: 1
+  dim: 28
+  dim: 28
+}
+layer {
+  name: "conv1"
+  type: "Convolution"
+  bottom: "input"
+  top: "conv1"
+  convolution_param {
+    num_output: 5
+    kernel_size: 5
+    stride: 1
+    pad: 3
+  }
+}
+
+#Branch1 start
+layer {
+  name: "B1_pool0"
+  type: "Pooling"
+  bottom: "conv1"
+  top: "B1_pool0"
+  pooling_param {
+  	pool: MAX
+    kernel_size: 2
+    stride: 2
+  }
+}
+layer {
+  name: "B1_relu0"
+  type: "RELU"
+  bottom: "B1_pool0"
+  top: "B1_pool0"
+}
+layer {
+  name: "B1_conv1"
+  type: "Convolution"
+  bottom: "B1_pool0"
+  top: "B1_conv1"
+  convolution_param {
+    num_output: 10
+    kernel_size: 3
+    stride: 1
+    pad: 1
+  }
+}
+layer {
+  name: "B1_pool1"
+  type: "Pooling"
+  bottom: "B1_conv1"
+  top: "B1_pool1"
+  pooling_param {
+  	pool: MAX
+    kernel_size: 2
+    stride: 2
+  }
+}
+layer {
+  name: "B1_relu1"
+  type: "RELU"
+  bottom: "B1_pool1"
+  top: "B1_pool1"
+}
+layer {
+  name: "B1_exit"
+  type: "InnerProduct"
+  bottom: "B1_pool1"
+  top: "B1_exit"
+  inner_product_param {
+    num_output: 10
+  }
+}
+#Branch1 ending
+
+layer {
+  name: "pool1"
+  type: "Pooling"
+  bottom: "conv1"
+  top: "pool1"
+  pooling_param {
+  	pool: MAX
+    kernel_size: 2
+    stride: 2
+  }
+}
+layer {
+  name: "relu1"
+  type: "RELU"
+  bottom: "pool1"
+  top: "pool1"
+}
+layer {
+  name: "conv2"
+  type: "Convolution"
+  bottom: "pool1"
+  top: "conv2"
+  convolution_param {
+    num_output: 10
+    kernel_size: 5
+    stride: 1
+    pad: 3
+  }
+}
+layer {
+  name: "pool2"
+  type: "Pooling"
+  bottom: "conv2"
+  top: "pool2"
+  pooling_param {
+  	pool: MAX
+    kernel_size: 2
+    stride: 2
+  }
+}
+layer {
+  name: "relu2"
+  type: "RELU"
+  bottom: "pool2"
+  top: "pool2"
+}
+layer {
+  name: "conv3"
+  type: "Convolution"
+  bottom: "pool2"
+  top: "conv3"
+  convolution_param {
+    num_output: 20
+    kernel_size: 5
+    stride: 1
+    pad: 3
+  }
+}
+layer {
+  name: "pool3"
+  type: "Pooling"
+  bottom: "conv3"
+  top: "pool3"
+  pooling_param {
+  	pool: MAX
+    kernel_size: 2
+    stride: 2
+  }
+}
+layer {
+  name: "relu3"
+  type: "RELU"
+  bottom: "pool3"
+  top: "pool3"
+}
+layer {
+  name: "fc4"
+  type: "InnerProduct"
+  bottom: "pool3"
+  top: "fc4"
+  inner_product_param {
+    num_output: 84
+  }
+}
+layer {
+  name: "output"
+  type: "InnerProduct"
+  bottom: "fc4"
+  top: "output"
+  inner_product_param {
+    num_output: 10
+  }
+}

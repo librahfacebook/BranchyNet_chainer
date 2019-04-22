@@ -1,0 +1,3484 @@
+#the create for B-ResNet
+name: "B-ResNet"
+input: "input"
+input_shape {
+  dim: 512
+  dim: 3
+  dim: 32
+  dim: 32
+}
+layer {
+  name: "conv1"
+  type: "Convolution"
+  bottom: "input"
+  top: "conv1"
+  convolution_param {
+    num_output: 16
+    kernel_size: 3
+    stride: 1
+    pad: 1
+  }
+}
+layer {
+  name: "batch1"
+  type: "BatchNorm"
+  bottom: "conv1"
+  top: "conv1"
+}
+layer {
+  name: "relu1"
+  type: "RELU"
+  bottom: "conv1"
+  top: "conv1"
+}
+
+#Res1 start
+
+#ResBlock start
+layer {
+  name: "r1_conv1"
+  type: "Convolution"
+  bottom: "conv1"
+  top: "r1_conv1"
+  convolution_param {
+    num_output: 16
+    kernel_size: 3
+    stride: 1
+    pad: 1
+  }
+}
+layer {
+  name: "r1_batch1"
+  type: "BatchNorm"
+  bottom: "r1_conv1"
+  top: "r1_conv1"
+}
+layer {
+  name: "r1_relu1"
+  type: "RELU"
+  bottom: "r1_conv1"
+  top: "r1_conv1"
+}
+layer {
+  name: "r1_conv2"
+  type: "Convolution"
+  bottom: "r1_conv1"
+  top: "r1_conv2"
+  convolution_param {
+    num_output: 16
+    kernel_size: 3
+    stride: 1
+    pad: 1
+  }
+}
+layer {
+  name: "r1_batch2"
+  type: "BatchNorm"
+  bottom: "r1_conv2"
+  top: "r1_conv2"
+}
+layer {
+  name: "r1_sum1"
+  type: "Eltwise"
+  bottom: "conv1"
+  bottom: "r1_conv2"
+  top: "r1_sum1"
+  eltwise_param {
+    operation: SUM
+  }
+}
+layer {
+  name: "r1_relu2"
+  type: "RELU"
+  bottom: "r1_sum1"
+  top: "r1_sum1"
+}
+#ResBlock ending
+#ResBlock start
+layer {
+  name: "r1_conv3"
+  type: "Convolution"
+  bottom: "r1_sum1"
+  top: "r1_conv3"
+  convolution_param {
+    num_output: 16
+    kernel_size: 3
+    stride: 1
+    pad: 1
+  }
+}
+layer {
+  name: "r1_batch3"
+  type: "BatchNorm"
+  bottom: "r1_conv3"
+  top: "r1_conv3"
+}
+layer {
+  name: "r1_relu3"
+  type: "RELU"
+  bottom: "r1_conv3"
+  top: "r1_conv3"
+}
+layer {
+  name: "r1_conv4"
+  type: "Convolution"
+  bottom: "r1_conv3"
+  top: "r1_conv4"
+  convolution_param {
+    num_output: 16
+    kernel_size: 3
+    stride: 1
+    pad: 1
+  }
+}
+layer {
+  name: "r1_batch4"
+  type: "BatchNorm"
+  bottom: "r1_conv4"
+  top: "r1_conv4"
+}
+layer {
+  name: "r1_sum2"
+  type: "Eltwise"
+  bottom: "r1_sum1"
+  bottom: "r1_conv4"
+  top: "r1_sum2"
+  eltwise_param {
+    operation: SUM
+  }
+}
+layer {
+  name: "r1_relu4"
+  type: "RELU"
+  bottom: "r1_sum2"
+  top: "r1_sum2"
+}
+#ResBlock ending
+#ResBlock start
+layer {
+  name: "r1_conv5"
+  type: "Convolution"
+  bottom: "r1_sum2"
+  top: "r1_conv5"
+  convolution_param {
+    num_output: 16
+    kernel_size: 3
+    stride: 1
+    pad: 1
+  }
+}
+layer {
+  name: "r1_batch5"
+  type: "BatchNorm"
+  bottom: "r1_conv5"
+  top: "r1_conv5"
+}
+layer {
+  name: "r1_relu5"
+  type: "RELU"
+  bottom: "r1_conv5"
+  top: "r1_conv5"
+}
+layer {
+  name: "r1_conv6"
+  type: "Convolution"
+  bottom: "r1_conv5"
+  top: "r1_conv6"
+  convolution_param {
+    num_output: 16
+    kernel_size: 3
+    stride: 1
+    pad: 1
+  }
+}
+layer {
+  name: "r1_batch6"
+  type: "BatchNorm"
+  bottom: "r1_conv6"
+  top: "r1_conv6"
+}
+layer {
+  name: "r1_sum3"
+  type: "Eltwise"
+  bottom: "r1_sum2"
+  bottom: "r1_conv6"
+  top: "r1_sum3"
+  eltwise_param {
+    operation: SUM
+  }
+}
+layer {
+  name: "r1_relu6"
+  type: "RELU"
+  bottom: "r1_sum3"
+  top: "r1_sum3"
+}
+#ResBlock ending
+#ResBlock start
+layer {
+  name: "r1_conv7"
+  type: "Convolution"
+  bottom: "r1_sum3"
+  top: "r1_conv7"
+  convolution_param {
+    num_output: 16
+    kernel_size: 3
+    stride: 1
+    pad: 1
+  }
+}
+layer {
+  name: "r1_batch7"
+  type: "BatchNorm"
+  bottom: "r1_conv7"
+  top: "r1_conv7"
+}
+layer {
+  name: "r1_relu7"
+  type: "RELU"
+  bottom: "r1_conv7"
+  top: "r1_conv7"
+}
+layer {
+  name: "r1_conv8"
+  type: "Convolution"
+  bottom: "r1_conv7"
+  top: "r1_conv8"
+  convolution_param {
+    num_output: 16
+    kernel_size: 3
+    stride: 1
+    pad: 1
+  }
+}
+layer {
+  name: "r1_batch8"
+  type: "BatchNorm"
+  bottom: "r1_conv8"
+  top: "r1_conv8"
+}
+layer {
+  name: "r1_sum4"
+  type: "Eltwise"
+  bottom: "r1_sum3"
+  bottom: "r1_conv8"
+  top: "r1_sum4"
+  eltwise_param {
+    operation: SUM
+  }
+}
+layer {
+  name: "r1_relu8"
+  type: "RELU"
+  bottom: "r1_sum4"
+  top: "r1_sum4"
+}
+#ResBlock ending
+#ResBlock start
+layer {
+  name: "r1_conv9"
+  type: "Convolution"
+  bottom: "r1_sum4"
+  top: "r1_conv9"
+  convolution_param {
+    num_output: 16
+    kernel_size: 3
+    stride: 1
+    pad: 1
+  }
+}
+layer {
+  name: "r1_batch9"
+  type: "BatchNorm"
+  bottom: "r1_conv9"
+  top: "r1_conv9"
+}
+layer {
+  name: "r1_relu9"
+  type: "RELU"
+  bottom: "r1_conv9"
+  top: "r1_conv9"
+}
+layer {
+  name: "r1_conv10"
+  type: "Convolution"
+  bottom: "r1_conv9"
+  top: "r1_conv10"
+  convolution_param {
+    num_output: 16
+    kernel_size: 3
+    stride: 1
+    pad: 1
+  }
+}
+layer {
+  name: "r1_batch10"
+  type: "BatchNorm"
+  bottom: "r1_conv10"
+  top: "r1_conv10"
+}
+layer {
+  name: "r1_sum5"
+  type: "Eltwise"
+  bottom: "r1_sum4"
+  bottom: "r1_conv10"
+  top: "r1_sum5"
+  eltwise_param {
+    operation: SUM
+  }
+}
+layer {
+  name: "r1_relu10"
+  type: "RELU"
+  bottom: "r1_sum5"
+  top: "r1_sum5"
+}
+#ResBlock ending
+#ResBlock start
+layer {
+  name: "r1_conv11"
+  type: "Convolution"
+  bottom: "r1_sum5"
+  top: "r1_conv11"
+  convolution_param {
+    num_output: 16
+    kernel_size: 3
+    stride: 1
+    pad: 1
+  }
+}
+layer {
+  name: "r1_batch11"
+  type: "BatchNorm"
+  bottom: "r1_conv11"
+  top: "r1_conv11"
+}
+layer {
+  name: "r1_relu11"
+  type: "RELU"
+  bottom: "r1_conv11"
+  top: "r1_conv11"
+}
+layer {
+  name: "r1_conv12"
+  type: "Convolution"
+  bottom: "r1_conv11"
+  top: "r1_conv12"
+  convolution_param {
+    num_output: 16
+    kernel_size: 3
+    stride: 1
+    pad: 1
+  }
+}
+layer {
+  name: "r1_batch12"
+  type: "BatchNorm"
+  bottom: "r1_conv12"
+  top: "r1_conv12"
+}
+layer {
+  name: "r1_sum6"
+  type: "Eltwise"
+  bottom: "r1_sum5"
+  bottom: "r1_conv12"
+  top: "r1_sum6"
+  eltwise_param {
+    operation: SUM
+  }
+}
+layer {
+  name: "r1_relu12"
+  type: "RELU"
+  bottom: "r1_sum6"
+  top: "r1_sum6"
+}
+#ResBlock ending
+#ResBlock start
+layer {
+  name: "r1_conv13"
+  type: "Convolution"
+  bottom: "r1_sum6"
+  top: "r1_conv13"
+  convolution_param {
+    num_output: 16
+    kernel_size: 3
+    stride: 1
+    pad: 1
+  }
+}
+layer {
+  name: "r1_batch13"
+  type: "BatchNorm"
+  bottom: "r1_conv13"
+  top: "r1_conv13"
+}
+layer {
+  name: "r1_relu13"
+  type: "RELU"
+  bottom: "r1_conv13"
+  top: "r1_conv13"
+}
+layer {
+  name: "r1_conv14"
+  type: "Convolution"
+  bottom: "r1_conv13"
+  top: "r1_conv14"
+  convolution_param {
+    num_output: 16
+    kernel_size: 3
+    stride: 1
+    pad: 1
+  }
+}
+layer {
+  name: "r1_batch14"
+  type: "BatchNorm"
+  bottom: "r1_conv14"
+  top: "r1_conv14"
+}
+layer {
+  name: "r1_sum7"
+  type: "Eltwise"
+  bottom: "r1_sum6"
+  bottom: "r1_conv14"
+  top: "r1_sum7"
+  eltwise_param {
+    operation: SUM
+  }
+}
+layer {
+  name: "r1_relu14"
+  type: "RELU"
+  bottom: "r1_sum7"
+  top: "r1_sum7"
+}
+#ResBlock ending
+#ResBlock start
+layer {
+  name: "r1_conv15"
+  type: "Convolution"
+  bottom: "r1_sum7"
+  top: "r1_conv15"
+  convolution_param {
+    num_output: 16
+    kernel_size: 3
+    stride: 1
+    pad: 1
+  }
+}
+layer {
+  name: "r1_batch15"
+  type: "BatchNorm"
+  bottom: "r1_conv15"
+  top: "r1_conv15"
+}
+layer {
+  name: "r1_relu15"
+  type: "RELU"
+  bottom: "r1_conv15"
+  top: "r1_conv15"
+}
+layer {
+  name: "r1_conv16"
+  type: "Convolution"
+  bottom: "r1_conv15"
+  top: "r1_conv16"
+  convolution_param {
+    num_output: 16
+    kernel_size: 3
+    stride: 1
+    pad: 1
+  }
+}
+layer {
+  name: "r1_batch16"
+  type: "BatchNorm"
+  bottom: "r1_conv16"
+  top: "r1_conv16"
+}
+layer {
+  name: "r1_sum8"
+  type: "Eltwise"
+  bottom: "r1_sum7"
+  bottom: "r1_conv16"
+  top: "r1_sum8"
+  eltwise_param {
+    operation: SUM
+  }
+}
+layer {
+  name: "r1_relu16"
+  type: "RELU"
+  bottom: "r1_sum8"
+  top: "r1_sum8"
+}
+#ResBlock ending
+#ResBlock start
+layer {
+  name: "r1_conv17"
+  type: "Convolution"
+  bottom: "r1_sum8"
+  top: "r1_conv17"
+  convolution_param {
+    num_output: 16
+    kernel_size: 3
+    stride: 1
+    pad: 1
+  }
+}
+layer {
+  name: "r1_batch17"
+  type: "BatchNorm"
+  bottom: "r1_conv17"
+  top: "r1_conv17"
+}
+layer {
+  name: "r1_relu17"
+  type: "RELU"
+  bottom: "r1_conv17"
+  top: "r1_conv17"
+}
+layer {
+  name: "r1_conv18"
+  type: "Convolution"
+  bottom: "r1_conv17"
+  top: "r1_conv18"
+  convolution_param {
+    num_output: 16
+    kernel_size: 3
+    stride: 1
+    pad: 1
+  }
+}
+layer {
+  name: "r1_batch18"
+  type: "BatchNorm"
+  bottom: "r1_conv18"
+  top: "r1_conv18"
+}
+layer {
+  name: "r1_sum9"
+  type: "Eltwise"
+  bottom: "r1_sum8"
+  bottom: "r1_conv18"
+  top: "r1_sum9"
+  eltwise_param {
+    operation: SUM
+  }
+}
+layer {
+  name: "r1_relu18"
+  type: "RELU"
+  bottom: "r1_sum9"
+  top: "r1_sum9"
+}
+#ResBlock ending
+#ResBlock start
+layer {
+  name: "r1_conv19"
+  type: "Convolution"
+  bottom: "r1_sum9"
+  top: "r1_conv19"
+  convolution_param {
+    num_output: 16
+    kernel_size: 3
+    stride: 1
+    pad: 1
+  }
+}
+layer {
+  name: "r1_batch19"
+  type: "BatchNorm"
+  bottom: "r1_conv19"
+  top: "r1_conv19"
+}
+layer {
+  name: "r1_relu19"
+  type: "RELU"
+  bottom: "r1_conv19"
+  top: "r1_conv19"
+}
+layer {
+  name: "r1_conv20"
+  type: "Convolution"
+  bottom: "r1_conv19"
+  top: "r1_conv20"
+  convolution_param {
+    num_output: 16
+    kernel_size: 3
+    stride: 1
+    pad: 1
+  }
+}
+layer {
+  name: "r1_batch20"
+  type: "BatchNorm"
+  bottom: "r1_conv20"
+  top: "r1_conv20"
+}
+layer {
+  name: "r1_sum10"
+  type: "Eltwise"
+  bottom: "r1_sum9"
+  bottom: "r1_conv20"
+  top: "r1_sum10"
+  eltwise_param {
+    operation: SUM
+  }
+}
+layer {
+  name: "r1_relu20"
+  type: "RELU"
+  bottom: "r1_sum10"
+  top: "r1_sum10"
+}
+#ResBlock ending
+#ResBlock start
+layer {
+  name: "r1_conv21"
+  type: "Convolution"
+  bottom: "r1_sum10"
+  top: "r1_conv21"
+  convolution_param {
+    num_output: 16
+    kernel_size: 3
+    stride: 1
+    pad: 1
+  }
+}
+layer {
+  name: "r1_batch21"
+  type: "BatchNorm"
+  bottom: "r1_conv21"
+  top: "r1_conv21"
+}
+layer {
+  name: "r1_relu21"
+  type: "RELU"
+  bottom: "r1_conv21"
+  top: "r1_conv21"
+}
+layer {
+  name: "r1_conv22"
+  type: "Convolution"
+  bottom: "r1_conv21"
+  top: "r1_conv22"
+  convolution_param {
+    num_output: 16
+    kernel_size: 3
+    stride: 1
+    pad: 1
+  }
+}
+layer {
+  name: "r1_batch22"
+  type: "BatchNorm"
+  bottom: "r1_conv22"
+  top: "r1_conv22"
+}
+layer {
+  name: "r1_sum11"
+  type: "Eltwise"
+  bottom: "r1_sum10"
+  bottom: "r1_conv22"
+  top: "r1_sum11"
+  eltwise_param {
+    operation: SUM
+  }
+}
+layer {
+  name: "r1_relu22"
+  type: "RELU"
+  bottom: "r1_sum11"
+  top: "r1_sum11"
+}
+#ResBlock ending
+#ResBlock start
+layer {
+  name: "r1_conv23"
+  type: "Convolution"
+  bottom: "r1_sum11"
+  top: "r1_conv23"
+  convolution_param {
+    num_output: 16
+    kernel_size: 3
+    stride: 1
+    pad: 1
+  }
+}
+layer {
+  name: "r1_batch23"
+  type: "BatchNorm"
+  bottom: "r1_conv23"
+  top: "r1_conv23"
+}
+layer {
+  name: "r1_relu23"
+  type: "RELU"
+  bottom: "r1_conv23"
+  top: "r1_conv23"
+}
+layer {
+  name: "r1_conv24"
+  type: "Convolution"
+  bottom: "r1_conv23"
+  top: "r1_conv24"
+  convolution_param {
+    num_output: 16
+    kernel_size: 3
+    stride: 1
+    pad: 1
+  }
+}
+layer {
+  name: "r1_batch24"
+  type: "BatchNorm"
+  bottom: "r1_conv24"
+  top: "r1_conv24"
+}
+layer {
+  name: "r1_sum12"
+  type: "Eltwise"
+  bottom: "r1_sum11"
+  bottom: "r1_conv24"
+  top: "r1_sum12"
+  eltwise_param {
+    operation: SUM
+  }
+}
+layer {
+  name: "r1_relu24"
+  type: "RELU"
+  bottom: "r1_sum12"
+  top: "r1_sum12"
+}
+#ResBlock ending
+#ResBlock start
+layer {
+  name: "r1_conv25"
+  type: "Convolution"
+  bottom: "r1_sum12"
+  top: "r1_conv25"
+  convolution_param {
+    num_output: 16
+    kernel_size: 3
+    stride: 1
+    pad: 1
+  }
+}
+layer {
+  name: "r1_batch25"
+  type: "BatchNorm"
+  bottom: "r1_conv25"
+  top: "r1_conv25"
+}
+layer {
+  name: "r1_relu25"
+  type: "RELU"
+  bottom: "r1_conv25"
+  top: "r1_conv25"
+}
+layer {
+  name: "r1_conv26"
+  type: "Convolution"
+  bottom: "r1_conv25"
+  top: "r1_conv26"
+  convolution_param {
+    num_output: 16
+    kernel_size: 3
+    stride: 1
+    pad: 1
+  }
+}
+layer {
+  name: "r1_batch26"
+  type: "BatchNorm"
+  bottom: "r1_conv26"
+  top: "r1_conv26"
+}
+layer {
+  name: "r1_sum13"
+  type: "Eltwise"
+  bottom: "r1_sum12"
+  bottom: "r1_conv26"
+  top: "r1_sum13"
+  eltwise_param {
+    operation: SUM
+  }
+}
+layer {
+  name: "r1_relu26"
+  type: "RELU"
+  bottom: "r1_sum13"
+  top: "r1_sum13"
+}
+#ResBlock ending
+#ResBlock start
+layer {
+  name: "r1_conv27"
+  type: "Convolution"
+  bottom: "r1_sum13"
+  top: "r1_conv27"
+  convolution_param {
+    num_output: 16
+    kernel_size: 3
+    stride: 1
+    pad: 1
+  }
+}
+layer {
+  name: "r1_batch27"
+  type: "BatchNorm"
+  bottom: "r1_conv27"
+  top: "r1_conv27"
+}
+layer {
+  name: "r1_relu27"
+  type: "RELU"
+  bottom: "r1_conv27"
+  top: "r1_conv27"
+}
+layer {
+  name: "r1_conv28"
+  type: "Convolution"
+  bottom: "r1_conv27"
+  top: "r1_conv28"
+  convolution_param {
+    num_output: 16
+    kernel_size: 3
+    stride: 1
+    pad: 1
+  }
+}
+layer {
+  name: "r1_batch28"
+  type: "BatchNorm"
+  bottom: "r1_conv28"
+  top: "r1_conv28"
+}
+layer {
+  name: "r1_sum14"
+  type: "Eltwise"
+  bottom: "r1_sum13"
+  bottom: "r1_conv28"
+  top: "r1_sum14"
+  eltwise_param {
+    operation: SUM
+  }
+}
+layer {
+  name: "r1_relu28"
+  type: "RELU"
+  bottom: "r1_sum14"
+  top: "r1_sum14"
+}
+#ResBlock ending
+#ResBlock start
+layer {
+  name: "r1_conv29"
+  type: "Convolution"
+  bottom: "r1_sum14"
+  top: "r1_conv29"
+  convolution_param {
+    num_output: 16
+    kernel_size: 3
+    stride: 1
+    pad: 1
+  }
+}
+layer {
+  name: "r1_batch29"
+  type: "BatchNorm"
+  bottom: "r1_conv29"
+  top: "r1_conv29"
+}
+layer {
+  name: "r1_relu29"
+  type: "RELU"
+  bottom: "r1_conv29"
+  top: "r1_conv29"
+}
+layer {
+  name: "r1_conv30"
+  type: "Convolution"
+  bottom: "r1_conv29"
+  top: "r1_conv30"
+  convolution_param {
+    num_output: 16
+    kernel_size: 3
+    stride: 1
+    pad: 1
+  }
+}
+layer {
+  name: "r1_batch30"
+  type: "BatchNorm"
+  bottom: "r1_conv30"
+  top: "r1_conv30"
+}
+layer {
+  name: "r1_sum15"
+  type: "Eltwise"
+  bottom: "r1_sum14"
+  bottom: "r1_conv30"
+  top: "r1_sum15"
+  eltwise_param {
+    operation: SUM
+  }
+}
+layer {
+  name: "r1_relu30"
+  type: "RELU"
+  bottom: "r1_sum15"
+  top: "r1_sum15"
+}
+#ResBlock ending
+#ResBlock start
+layer {
+  name: "r1_conv31"
+  type: "Convolution"
+  bottom: "r1_sum15"
+  top: "r1_conv31"
+  convolution_param {
+    num_output: 16
+    kernel_size: 3
+    stride: 1
+    pad: 1
+  }
+}
+layer {
+  name: "r1_batch31"
+  type: "BatchNorm"
+  bottom: "r1_conv31"
+  top: "r1_conv31"
+}
+layer {
+  name: "r1_relu31"
+  type: "RELU"
+  bottom: "r1_conv31"
+  top: "r1_conv31"
+}
+layer {
+  name: "r1_conv32"
+  type: "Convolution"
+  bottom: "r1_conv31"
+  top: "r1_conv32"
+  convolution_param {
+    num_output: 16
+    kernel_size: 3
+    stride: 1
+    pad: 1
+  }
+}
+layer {
+  name: "r1_batch32"
+  type: "BatchNorm"
+  bottom: "r1_conv32"
+  top: "r1_conv32"
+}
+layer {
+  name: "r1_sum16"
+  type: "Eltwise"
+  bottom: "r1_sum15"
+  bottom: "r1_conv32"
+  top: "r1_sum16"
+  eltwise_param {
+    operation: SUM
+  }
+}
+layer {
+  name: "r1_relu32"
+  type: "RELU"
+  bottom: "r1_sum16"
+  top: "r1_sum16"
+}
+#ResBlock ending
+#ResBlock start
+layer {
+  name: "r1_conv33"
+  type: "Convolution"
+  bottom: "r1_sum16"
+  top: "r1_conv33"
+  convolution_param {
+    num_output: 16
+    kernel_size: 3
+    stride: 1
+    pad: 1
+  }
+}
+layer {
+  name: "r1_batch33"
+  type: "BatchNorm"
+  bottom: "r1_conv33"
+  top: "r1_conv33"
+}
+layer {
+  name: "r1_relu33"
+  type: "RELU"
+  bottom: "r1_conv33"
+  top: "r1_conv33"
+}
+layer {
+  name: "r1_conv34"
+  type: "Convolution"
+  bottom: "r1_conv33"
+  top: "r1_conv34"
+  convolution_param {
+    num_output: 16
+    kernel_size: 3
+    stride: 1
+    pad: 1
+  }
+}
+layer {
+  name: "r1_batch34"
+  type: "BatchNorm"
+  bottom: "r1_conv34"
+  top: "r1_conv34"
+}
+layer {
+  name: "r1_sum17"
+  type: "Eltwise"
+  bottom: "r1_sum16"
+  bottom: "r1_conv34"
+  top: "r1_sum17"
+  eltwise_param {
+    operation: SUM
+  }
+}
+layer {
+  name: "r1_relu34"
+  type: "RELU"
+  bottom: "r1_sum17"
+  top: "r1_sum17"
+}
+#ResBlock ending
+#ResBlock start
+layer {
+  name: "r1_conv35"
+  type: "Convolution"
+  bottom: "r1_sum17"
+  top: "r1_conv35"
+  convolution_param {
+    num_output: 16
+    kernel_size: 3
+    stride: 1
+    pad: 1
+  }
+}
+layer {
+  name: "r1_batch35"
+  type: "BatchNorm"
+  bottom: "r1_conv35"
+  top: "r1_conv35"
+}
+layer {
+  name: "r1_relu35"
+  type: "RELU"
+  bottom: "r1_conv35"
+  top: "r1_conv35"
+}
+layer {
+  name: "r1_conv36"
+  type: "Convolution"
+  bottom: "r1_conv35"
+  top: "r1_conv36"
+  convolution_param {
+    num_output: 16
+    kernel_size: 3
+    stride: 1
+    pad: 1
+  }
+}
+layer {
+  name: "r1_batch36"
+  type: "BatchNorm"
+  bottom: "r1_conv36"
+  top: "r1_conv36"
+}
+layer {
+  name: "r1_sum18"
+  type: "Eltwise"
+  bottom: "r1_sum17"
+  bottom: "r1_conv36"
+  top: "r1_sum18"
+  eltwise_param {
+    operation: SUM
+  }
+}
+layer {
+  name: "r1_relu36"
+  type: "RELU"
+  bottom: "r1_sum18"
+  top: "r1_sum18"
+}
+#ResBlock ending
+
+#Res1 ending
+
+#Branch1 start
+#ResBlock start
+layer {
+  name: "B1_conv1"
+  type: "Convolution"
+  bottom: "r1_sum18"
+  top: "B1_conv1"
+  convolution_param {
+    num_output: 16
+    kernel_size: 3
+    stride: 1
+    pad: 1
+  }
+}
+layer {
+  name: "B1_batch1"
+  type: "BatchNorm"
+  bottom: "B1_conv1"
+  top: "B1_conv1"
+}
+layer {
+  name: "B1_relu1"
+  type: "RELU"
+  bottom: "B1_conv1"
+  top: "B1_conv1"
+}
+layer {
+  name: "B1_conv2"
+  type: "Convolution"
+  bottom: "B1_conv1"
+  top: "B1_conv2"
+  convolution_param {
+    num_output: 16
+    kernel_size: 3
+    stride: 1
+    pad: 1
+  }
+}
+layer {
+  name: "B1_batch2"
+  type: "BatchNorm"
+  bottom: "B1_conv2"
+  top: "B1_conv2"
+}
+
+layer {
+  name: "B1_sum"
+  type: "Eltwise"
+  bottom: "r1_sum18"
+  bottom: "B1_conv2"
+  top: "B1_sum"
+  eltwise_param {
+    operation: SUM
+  }
+}
+layer {
+  name: "B1_relu2"
+  type: "RELU"
+  bottom: "B1_sum"
+  top: "B1_sum"
+}
+#ResBlock ending
+layer {
+  name: "B1_exit1"
+  type: "InnerProduct"
+  bottom: "B1_sum"
+  top: "B1_exit1"
+  inner_product_param {
+    num_output: 10
+  }
+}
+#Branch2 ending 
+
+#Res2 start
+#ResBlock start
+layer {
+  name: "r2_conv1"
+  type: "Convolution"
+  bottom: "r1_sum18"
+  top: "r2_conv1"
+  convolution_param {
+    num_output: 32
+    kernel_size: 3
+    stride: 2
+    pad: 1
+  }
+}
+layer {
+  name: "r2_batch1"
+  type: "BatchNorm"
+  bottom: "r2_conv1"
+  top: "r2_conv1"
+}
+layer {
+  name: "r2_relu1"
+  type: "RELU"
+  bottom: "r2_conv1"
+  top: "r2_conv1"
+}
+layer {
+  name: "r2_conv2"
+  type: "Convolution"
+  bottom: "r2_conv1"
+  top: "r2_conv2"
+  convolution_param {
+    num_output: 32
+    kernel_size: 3
+    stride: 1
+    pad: 1
+  }
+}
+layer {
+  name: "r2_batch2"
+  type: "BatchNorm"
+  bottom: "r2_conv2"
+  top: "r2_conv2"
+}
+layer {
+  name: "r2_proj"
+  type: "Convolution"
+  bottom: "r1_sum18"
+  top: "r2_proj"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  convolution_param {
+    num_output: 32
+    pad: 0
+    kernel_size: 1
+    stride: 2
+    weight_filler {
+      type: "msra"
+    }
+  }
+}
+layer {
+  name: "r2_proj_bn"
+  type: "BatchNorm"
+  bottom: "r2_proj"
+  top: "r2_proj"
+  param {
+    lr_mult: 0
+    decay_mult: 0
+  }
+  param {
+    lr_mult: 0
+    decay_mult: 0
+  }
+  param {
+    lr_mult: 0
+    decay_mult: 0
+  }
+}
+
+layer {
+  name: "r2_sum1"
+  type: "Eltwise"
+  bottom: "r2_proj"
+  bottom: "r2_conv2"
+  top: "r2_sum1"
+  eltwise_param {
+    operation: SUM
+  }
+}
+layer {
+  name: "r2_relu2"
+  type: "RELU"
+  bottom: "r2_sum1"
+  top: "r2_sum1"
+}
+#ResBlock ending
+#ResBlock start
+layer {
+  name: "r2_conv3"
+  type: "Convolution"
+  bottom: "r2_sum1"
+  top: "r2_conv3"
+  convolution_param {
+    num_output: 32
+    kernel_size: 3
+    stride: 1
+    pad: 1
+  }
+}
+layer {
+  name: "r2_batch3"
+  type: "BatchNorm"
+  bottom: "r2_conv3"
+  top: "r2_conv3"
+}
+layer {
+  name: "r2_relu3"
+  type: "RELU"
+  bottom: "r2_conv3"
+  top: "r2_conv3"
+}
+layer {
+  name: "r2_conv4"
+  type: "Convolution"
+  bottom: "r2_conv3"
+  top: "r2_conv4"
+  convolution_param {
+    num_output: 32
+    kernel_size: 3
+    stride: 1
+    pad: 1
+  }
+}
+layer {
+  name: "r2_batch4"
+  type: "BatchNorm"
+  bottom: "r2_conv4"
+  top: "r2_conv4"
+}
+layer {
+  name: "r2_sum2"
+  type: "Eltwise"
+  bottom: "r2_sum1"
+  bottom: "r2_conv4"
+  top: "r2_sum2"
+  eltwise_param {
+    operation: SUM
+  }
+}
+layer {
+  name: "r2_relu4"
+  type: "RELU"
+  bottom: "r2_sum2"
+  top: "r2_sum2"
+}
+#ResBlock ending
+#ResBlock start
+layer {
+  name: "r2_conv5"
+  type: "Convolution"
+  bottom: "r2_sum2"
+  top: "r2_conv5"
+  convolution_param {
+    num_output: 32
+    kernel_size: 3
+    stride: 1
+    pad: 1
+  }
+}
+layer {
+  name: "r2_batch5"
+  type: "BatchNorm"
+  bottom: "r2_conv5"
+  top: "r2_conv5"
+}
+layer {
+  name: "r2_relu5"
+  type: "RELU"
+  bottom: "r2_conv5"
+  top: "r2_conv5"
+}
+layer {
+  name: "r2_conv6"
+  type: "Convolution"
+  bottom: "r2_conv5"
+  top: "r2_conv6"
+  convolution_param {
+    num_output: 32
+    kernel_size: 3
+    stride: 1
+    pad: 1
+  }
+}
+layer {
+  name: "r2_batch6"
+  type: "BatchNorm"
+  bottom: "r2_conv6"
+  top: "r2_conv6"
+}
+layer {
+  name: "r2_sum3"
+  type: "Eltwise"
+  bottom: "r2_sum2"
+  bottom: "r2_conv6"
+  top: "r2_sum3"
+  eltwise_param {
+    operation: SUM
+  }
+}
+layer {
+  name: "r2_relu6"
+  type: "RELU"
+  bottom: "r2_sum3"
+  top: "r2_sum3"
+}
+#ResBlock ending
+#ResBlock start
+layer {
+  name: "r2_conv7"
+  type: "Convolution"
+  bottom: "r2_sum3"
+  top: "r2_conv7"
+  convolution_param {
+    num_output: 32
+    kernel_size: 3
+    stride: 1
+    pad: 1
+  }
+}
+layer {
+  name: "r2_batch7"
+  type: "BatchNorm"
+  bottom: "r2_conv7"
+  top: "r2_conv7"
+}
+layer {
+  name: "r2_relu7"
+  type: "RELU"
+  bottom: "r2_conv7"
+  top: "r2_conv7"
+}
+layer {
+  name: "r2_conv8"
+  type: "Convolution"
+  bottom: "r2_conv7"
+  top: "r2_conv8"
+  convolution_param {
+    num_output: 32
+    kernel_size: 3
+    stride: 1
+    pad: 1
+  }
+}
+layer {
+  name: "r2_batch8"
+  type: "BatchNorm"
+  bottom: "r2_conv8"
+  top: "r2_conv8"
+}
+layer {
+  name: "r2_sum4"
+  type: "Eltwise"
+  bottom: "r2_sum3"
+  bottom: "r2_conv8"
+  top: "r2_sum4"
+  eltwise_param {
+    operation: SUM
+  }
+}
+layer {
+  name: "r2_relu8"
+  type: "RELU"
+  bottom: "r2_sum4"
+  top: "r2_sum4"
+}
+#ResBlock ending
+#ResBlock start
+layer {
+  name: "r2_conv9"
+  type: "Convolution"
+  bottom: "r2_sum4"
+  top: "r2_conv9"
+  convolution_param {
+    num_output: 32
+    kernel_size: 3
+    stride: 1
+    pad: 1
+  }
+}
+layer {
+  name: "r2_batch9"
+  type: "BatchNorm"
+  bottom: "r2_conv9"
+  top: "r2_conv9"
+}
+layer {
+  name: "r2_relu9"
+  type: "RELU"
+  bottom: "r2_conv9"
+  top: "r2_conv9"
+}
+layer {
+  name: "r2_conv10"
+  type: "Convolution"
+  bottom: "r2_conv9"
+  top: "r2_conv10"
+  convolution_param {
+    num_output: 32
+    kernel_size: 3
+    stride: 1
+    pad: 1
+  }
+}
+layer {
+  name: "r2_batch10"
+  type: "BatchNorm"
+  bottom: "r2_conv10"
+  top: "r2_conv10"
+}
+layer {
+  name: "r2_sum5"
+  type: "Eltwise"
+  bottom: "r2_sum4"
+  bottom: "r2_conv10"
+  top: "r2_sum5"
+  eltwise_param {
+    operation: SUM
+  }
+}
+layer {
+  name: "r2_relu10"
+  type: "RELU"
+  bottom: "r2_sum5"
+  top: "r2_sum5"
+}
+#ResBlock ending
+#ResBlock start
+layer {
+  name: "r2_conv11"
+  type: "Convolution"
+  bottom: "r2_sum5"
+  top: "r2_conv11"
+  convolution_param {
+    num_output: 32
+    kernel_size: 3
+    stride: 1
+    pad: 1
+  }
+}
+layer {
+  name: "r2_batch11"
+  type: "BatchNorm"
+  bottom: "r2_conv11"
+  top: "r2_conv11"
+}
+layer {
+  name: "r2_relu11"
+  type: "RELU"
+  bottom: "r2_conv11"
+  top: "r2_conv11"
+}
+layer {
+  name: "r2_conv12"
+  type: "Convolution"
+  bottom: "r2_conv11"
+  top: "r2_conv12"
+  convolution_param {
+    num_output: 32
+    kernel_size: 3
+    stride: 1
+    pad: 1
+  }
+}
+layer {
+  name: "r2_batch12"
+  type: "BatchNorm"
+  bottom: "r2_conv12"
+  top: "r2_conv12"
+}
+layer {
+  name: "r2_sum6"
+  type: "Eltwise"
+  bottom: "r2_sum5"
+  bottom: "r2_conv12"
+  top: "r2_sum6"
+  eltwise_param {
+    operation: SUM
+  }
+}
+layer {
+  name: "r2_relu12"
+  type: "RELU"
+  bottom: "r2_sum6"
+  top: "r2_sum6"
+}
+#ResBlock ending
+#ResBlock start
+layer {
+  name: "r2_conv13"
+  type: "Convolution"
+  bottom: "r2_sum6"
+  top: "r2_conv13"
+  convolution_param {
+    num_output: 32
+    kernel_size: 3
+    stride: 1
+    pad: 1
+  }
+}
+layer {
+  name: "r2_batch13"
+  type: "BatchNorm"
+  bottom: "r2_conv13"
+  top: "r2_conv13"
+}
+layer {
+  name: "r2_relu13"
+  type: "RELU"
+  bottom: "r2_conv13"
+  top: "r2_conv13"
+}
+layer {
+  name: "r2_conv14"
+  type: "Convolution"
+  bottom: "r2_conv13"
+  top: "r2_conv14"
+  convolution_param {
+    num_output: 32
+    kernel_size: 3
+    stride: 1
+    pad: 1
+  }
+}
+layer {
+  name: "r2_batch14"
+  type: "BatchNorm"
+  bottom: "r2_conv14"
+  top: "r2_conv14"
+}
+layer {
+  name: "r2_sum7"
+  type: "Eltwise"
+  bottom: "r2_sum6"
+  bottom: "r2_conv14"
+  top: "r2_sum7"
+  eltwise_param {
+    operation: SUM
+  }
+}
+layer {
+  name: "r2_relu14"
+  type: "RELU"
+  bottom: "r2_sum7"
+  top: "r2_sum7"
+}
+#ResBlock ending
+#ResBlock start
+layer {
+  name: "r2_conv15"
+  type: "Convolution"
+  bottom: "r2_sum7"
+  top: "r2_conv15"
+  convolution_param {
+    num_output: 32
+    kernel_size: 3
+    stride: 1
+    pad: 1
+  }
+}
+layer {
+  name: "r2_batch15"
+  type: "BatchNorm"
+  bottom: "r2_conv15"
+  top: "r2_conv15"
+}
+layer {
+  name: "r2_relu15"
+  type: "RELU"
+  bottom: "r2_conv15"
+  top: "r2_conv15"
+}
+layer {
+  name: "r2_conv16"
+  type: "Convolution"
+  bottom: "r2_conv15"
+  top: "r2_conv16"
+  convolution_param {
+    num_output: 32
+    kernel_size: 3
+    stride: 1
+    pad: 1
+  }
+}
+layer {
+  name: "r2_batch16"
+  type: "BatchNorm"
+  bottom: "r2_conv16"
+  top: "r2_conv16"
+}
+layer {
+  name: "r2_sum8"
+  type: "Eltwise"
+  bottom: "r2_sum7"
+  bottom: "r2_conv16"
+  top: "r2_sum8"
+  eltwise_param {
+    operation: SUM
+  }
+}
+layer {
+  name: "r2_relu16"
+  type: "RELU"
+  bottom: "r2_sum8"
+  top: "r2_sum8"
+}
+#ResBlock ending
+#ResBlock start
+layer {
+  name: "r2_conv17"
+  type: "Convolution"
+  bottom: "r2_sum8"
+  top: "r2_conv17"
+  convolution_param {
+    num_output: 32
+    kernel_size: 3
+    stride: 1
+    pad: 1
+  }
+}
+layer {
+  name: "r2_batch17"
+  type: "BatchNorm"
+  bottom: "r2_conv17"
+  top: "r2_conv17"
+}
+layer {
+  name: "r2_relu17"
+  type: "RELU"
+  bottom: "r2_conv17"
+  top: "r2_conv17"
+}
+layer {
+  name: "r2_conv18"
+  type: "Convolution"
+  bottom: "r2_conv17"
+  top: "r2_conv18"
+  convolution_param {
+    num_output: 32
+    kernel_size: 3
+    stride: 1
+    pad: 1
+  }
+}
+layer {
+  name: "r2_batch18"
+  type: "BatchNorm"
+  bottom: "r2_conv18"
+  top: "r2_conv18"
+}
+layer {
+  name: "r2_sum9"
+  type: "Eltwise"
+  bottom: "r2_sum8"
+  bottom: "r2_conv18"
+  top: "r2_sum9"
+  eltwise_param {
+    operation: SUM
+  }
+}
+layer {
+  name: "r2_relu18"
+  type: "RELU"
+  bottom: "r2_sum9"
+  top: "r2_sum9"
+}
+#ResBlock ending
+#ResBlock start
+layer {
+  name: "r2_conv19"
+  type: "Convolution"
+  bottom: "r2_sum9"
+  top: "r2_conv19"
+  convolution_param {
+    num_output: 32
+    kernel_size: 3
+    stride: 1
+    pad: 1
+  }
+}
+layer {
+  name: "r2_batch19"
+  type: "BatchNorm"
+  bottom: "r2_conv19"
+  top: "r2_conv19"
+}
+layer {
+  name: "r2_relu19"
+  type: "RELU"
+  bottom: "r2_conv19"
+  top: "r2_conv19"
+}
+layer {
+  name: "r2_conv20"
+  type: "Convolution"
+  bottom: "r2_conv19"
+  top: "r2_conv20"
+  convolution_param {
+    num_output: 32
+    kernel_size: 3
+    stride: 1
+    pad: 1
+  }
+}
+layer {
+  name: "r2_batch20"
+  type: "BatchNorm"
+  bottom: "r2_conv20"
+  top: "r2_conv20"
+}
+layer {
+  name: "r2_sum10"
+  type: "Eltwise"
+  bottom: "r2_sum9"
+  bottom: "r2_conv20"
+  top: "r2_sum10"
+  eltwise_param {
+    operation: SUM
+  }
+}
+layer {
+  name: "r2_relu20"
+  type: "RELU"
+  bottom: "r2_sum10"
+  top: "r2_sum10"
+}
+#ResBlock ending
+#ResBlock start
+layer {
+  name: "r2_conv21"
+  type: "Convolution"
+  bottom: "r2_sum10"
+  top: "r2_conv21"
+  convolution_param {
+    num_output: 32
+    kernel_size: 3
+    stride: 1
+    pad: 1
+  }
+}
+layer {
+  name: "r2_batch21"
+  type: "BatchNorm"
+  bottom: "r2_conv21"
+  top: "r2_conv21"
+}
+layer {
+  name: "r2_relu21"
+  type: "RELU"
+  bottom: "r2_conv21"
+  top: "r2_conv21"
+}
+layer {
+  name: "r2_conv22"
+  type: "Convolution"
+  bottom: "r2_conv21"
+  top: "r2_conv22"
+  convolution_param {
+    num_output: 32
+    kernel_size: 3
+    stride: 1
+    pad: 1
+  }
+}
+layer {
+  name: "r2_batch22"
+  type: "BatchNorm"
+  bottom: "r2_conv22"
+  top: "r2_conv22"
+}
+layer {
+  name: "r2_sum11"
+  type: "Eltwise"
+  bottom: "r2_sum10"
+  bottom: "r2_conv22"
+  top: "r2_sum11"
+  eltwise_param {
+    operation: SUM
+  }
+}
+layer {
+  name: "r2_relu22"
+  type: "RELU"
+  bottom: "r2_sum11"
+  top: "r2_sum11"
+}
+#ResBlock ending
+#ResBlock start
+layer {
+  name: "r2_conv23"
+  type: "Convolution"
+  bottom: "r2_sum11"
+  top: "r2_conv23"
+  convolution_param {
+    num_output: 32
+    kernel_size: 3
+    stride: 1
+    pad: 1
+  }
+}
+layer {
+  name: "r2_batch23"
+  type: "BatchNorm"
+  bottom: "r2_conv23"
+  top: "r2_conv23"
+}
+layer {
+  name: "r2_relu23"
+  type: "RELU"
+  bottom: "r2_conv23"
+  top: "r2_conv23"
+}
+layer {
+  name: "r2_conv24"
+  type: "Convolution"
+  bottom: "r2_conv23"
+  top: "r2_conv24"
+  convolution_param {
+    num_output: 32
+    kernel_size: 3
+    stride: 1
+    pad: 1
+  }
+}
+layer {
+  name: "r2_batch24"
+  type: "BatchNorm"
+  bottom: "r2_conv24"
+  top: "r2_conv24"
+}
+layer {
+  name: "r2_sum12"
+  type: "Eltwise"
+  bottom: "r2_sum11"
+  bottom: "r2_conv24"
+  top: "r2_sum12"
+  eltwise_param {
+    operation: SUM
+  }
+}
+layer {
+  name: "r2_relu24"
+  type: "RELU"
+  bottom: "r2_sum12"
+  top: "r2_sum12"
+}
+#ResBlock ending
+#ResBlock start
+layer {
+  name: "r2_conv25"
+  type: "Convolution"
+  bottom: "r2_sum12"
+  top: "r2_conv25"
+  convolution_param {
+    num_output: 32
+    kernel_size: 3
+    stride: 1
+    pad: 1
+  }
+}
+layer {
+  name: "r2_batch25"
+  type: "BatchNorm"
+  bottom: "r2_conv25"
+  top: "r2_conv25"
+}
+layer {
+  name: "r2_relu25"
+  type: "RELU"
+  bottom: "r2_conv25"
+  top: "r2_conv25"
+}
+layer {
+  name: "r2_conv26"
+  type: "Convolution"
+  bottom: "r2_conv25"
+  top: "r2_conv26"
+  convolution_param {
+    num_output: 32
+    kernel_size: 3
+    stride: 1
+    pad: 1
+  }
+}
+layer {
+  name: "r2_batch26"
+  type: "BatchNorm"
+  bottom: "r2_conv26"
+  top: "r2_conv26"
+}
+layer {
+  name: "r2_sum13"
+  type: "Eltwise"
+  bottom: "r2_sum12"
+  bottom: "r2_conv26"
+  top: "r2_sum13"
+  eltwise_param {
+    operation: SUM
+  }
+}
+layer {
+  name: "r2_relu26"
+  type: "RELU"
+  bottom: "r2_sum13"
+  top: "r2_sum13"
+}
+#ResBlock ending
+#ResBlock start
+layer {
+  name: "r2_conv27"
+  type: "Convolution"
+  bottom: "r2_sum13"
+  top: "r2_conv27"
+  convolution_param {
+    num_output: 32
+    kernel_size: 3
+    stride: 1
+    pad: 1
+  }
+}
+layer {
+  name: "r2_batch27"
+  type: "BatchNorm"
+  bottom: "r2_conv27"
+  top: "r2_conv27"
+}
+layer {
+  name: "r2_relu27"
+  type: "RELU"
+  bottom: "r2_conv27"
+  top: "r2_conv27"
+}
+layer {
+  name: "r2_conv28"
+  type: "Convolution"
+  bottom: "r2_conv27"
+  top: "r2_conv28"
+  convolution_param {
+    num_output: 32
+    kernel_size: 3
+    stride: 1
+    pad: 1
+  }
+}
+layer {
+  name: "r2_batch28"
+  type: "BatchNorm"
+  bottom: "r2_conv28"
+  top: "r2_conv28"
+}
+layer {
+  name: "r2_sum14"
+  type: "Eltwise"
+  bottom: "r2_sum13"
+  bottom: "r2_conv28"
+  top: "r2_sum14"
+  eltwise_param {
+    operation: SUM
+  }
+}
+layer {
+  name: "r2_relu28"
+  type: "RELU"
+  bottom: "r2_sum14"
+  top: "r2_sum14"
+}
+#ResBlock ending
+#ResBlock start
+layer {
+  name: "r2_conv29"
+  type: "Convolution"
+  bottom: "r2_sum14"
+  top: "r2_conv29"
+  convolution_param {
+    num_output: 32
+    kernel_size: 3
+    stride: 1
+    pad: 1
+  }
+}
+layer {
+  name: "r2_batch29"
+  type: "BatchNorm"
+  bottom: "r2_conv29"
+  top: "r2_conv29"
+}
+layer {
+  name: "r2_relu29"
+  type: "RELU"
+  bottom: "r2_conv29"
+  top: "r2_conv29"
+}
+layer {
+  name: "r2_conv30"
+  type: "Convolution"
+  bottom: "r2_conv29"
+  top: "r2_conv30"
+  convolution_param {
+    num_output: 32
+    kernel_size: 3
+    stride: 1
+    pad: 1
+  }
+}
+layer {
+  name: "r2_batch30"
+  type: "BatchNorm"
+  bottom: "r2_conv30"
+  top: "r2_conv30"
+}
+layer {
+  name: "r2_sum15"
+  type: "Eltwise"
+  bottom: "r2_sum14"
+  bottom: "r2_conv30"
+  top: "r2_sum15"
+  eltwise_param {
+    operation: SUM
+  }
+}
+layer {
+  name: "r2_relu30"
+  type: "RELU"
+  bottom: "r2_sum15"
+  top: "r2_sum15"
+}
+#ResBlock ending
+#ResBlock start
+layer {
+  name: "r2_conv31"
+  type: "Convolution"
+  bottom: "r2_sum15"
+  top: "r2_conv31"
+  convolution_param {
+    num_output: 32
+    kernel_size: 3
+    stride: 1
+    pad: 1
+  }
+}
+layer {
+  name: "r2_batch31"
+  type: "BatchNorm"
+  bottom: "r2_conv31"
+  top: "r2_conv31"
+}
+layer {
+  name: "r2_relu31"
+  type: "RELU"
+  bottom: "r2_conv31"
+  top: "r2_conv31"
+}
+layer {
+  name: "r2_conv32"
+  type: "Convolution"
+  bottom: "r2_conv31"
+  top: "r2_conv32"
+  convolution_param {
+    num_output: 32
+    kernel_size: 3
+    stride: 1
+    pad: 1
+  }
+}
+layer {
+  name: "r2_batch32"
+  type: "BatchNorm"
+  bottom: "r2_conv32"
+  top: "r2_conv32"
+}
+layer {
+  name: "r2_sum16"
+  type: "Eltwise"
+  bottom: "r2_sum15"
+  bottom: "r2_conv32"
+  top: "r2_sum16"
+  eltwise_param {
+    operation: SUM
+  }
+}
+layer {
+  name: "r2_relu32"
+  type: "RELU"
+  bottom: "r2_sum16"
+  top: "r2_sum16"
+}
+#ResBlock ending
+#ResBlock start
+layer {
+  name: "r2_conv33"
+  type: "Convolution"
+  bottom: "r2_sum16"
+  top: "r2_conv33"
+  convolution_param {
+    num_output: 32
+    kernel_size: 3
+    stride: 1
+    pad: 1
+  }
+}
+layer {
+  name: "r2_batch33"
+  type: "BatchNorm"
+  bottom: "r2_conv33"
+  top: "r2_conv33"
+}
+layer {
+  name: "r2_relu33"
+  type: "RELU"
+  bottom: "r2_conv33"
+  top: "r2_conv33"
+}
+layer {
+  name: "r2_conv34"
+  type: "Convolution"
+  bottom: "r2_conv33"
+  top: "r2_conv34"
+  convolution_param {
+    num_output: 32
+    kernel_size: 3
+    stride: 1
+    pad: 1
+  }
+}
+layer {
+  name: "r2_batch34"
+  type: "BatchNorm"
+  bottom: "r2_conv34"
+  top: "r2_conv34"
+}
+layer {
+  name: "r2_sum17"
+  type: "Eltwise"
+  bottom: "r2_sum16"
+  bottom: "r2_conv34"
+  top: "r2_sum17"
+  eltwise_param {
+    operation: SUM
+  }
+}
+layer {
+  name: "r2_relu34"
+  type: "RELU"
+  bottom: "r2_sum17"
+  top: "r2_sum17"
+}
+#ResBlock ending
+#ResBlock start
+layer {
+  name: "r2_conv35"
+  type: "Convolution"
+  bottom: "r2_sum17"
+  top: "r2_conv35"
+  convolution_param {
+    num_output: 32
+    kernel_size: 3
+    stride: 1
+    pad: 1
+  }
+}
+layer {
+  name: "r2_batch35"
+  type: "BatchNorm"
+  bottom: "r2_conv35"
+  top: "r2_conv35"
+}
+layer {
+  name: "r2_relu35"
+  type: "RELU"
+  bottom: "r2_conv35"
+  top: "r2_conv35"
+}
+layer {
+  name: "r2_conv36"
+  type: "Convolution"
+  bottom: "r2_conv35"
+  top: "r2_conv36"
+  convolution_param {
+    num_output: 32
+    kernel_size: 3
+    stride: 1
+    pad: 1
+  }
+}
+layer {
+  name: "r2_batch36"
+  type: "BatchNorm"
+  bottom: "r2_conv36"
+  top: "r2_conv36"
+}
+layer {
+  name: "r2_sum18"
+  type: "Eltwise"
+  bottom: "r2_sum17"
+  bottom: "r2_conv36"
+  top: "r2_sum18"
+  eltwise_param {
+    operation: SUM
+  }
+}
+layer {
+  name: "r2_relu36"
+  type: "RELU"
+  bottom: "r2_sum18"
+  top: "r2_sum18"
+}
+#ResBlock ending
+
+#Res2 ending
+
+#Branch2 start
+layer {
+  name: "B2_conv"
+  type: "Convolution"
+  bottom: "r2_sum18"
+  top: "B2_conv"
+  convolution_param {
+    num_output: 32
+    kernel_size: 3
+    stride: 1
+    pad: 1
+  }
+}
+layer {
+  name: "B2_relu"
+  type: "RELU"
+  bottom: "B2_conv"
+  top: "B2_conv"
+}
+layer {
+  name: "B2_exit"
+  type: "InnerProduct"
+  bottom: "B2_conv"
+  top: "B2_exit"
+  inner_product_param {
+    num_output: 10
+  }
+}
+#Branch2 ending
+#Res3 starting
+#ResBlock start
+layer {
+  name: "r3_conv1"
+  type: "Convolution"
+  bottom: "r2_sum18"
+  top: "r3_conv1"
+  convolution_param {
+    num_output: 64
+    kernel_size: 3
+    stride: 2
+    pad: 1
+  }
+}
+layer {
+  name: "r3_batch1"
+  type: "BatchNorm"
+  bottom: "r3_conv1"
+  top: "r3_conv1"
+}
+layer {
+  name: "r3_relu1"
+  type: "RELU"
+  bottom: "r3_conv1"
+  top: "r3_conv1"
+}
+layer {
+  name: "r3_conv2"
+  type: "Convolution"
+  bottom: "r3_conv1"
+  top: "r3_conv2"
+  convolution_param {
+    num_output: 64
+    kernel_size: 3
+    stride: 1
+    pad: 1
+  }
+}
+layer {
+  name: "r3_batch2"
+  type: "BatchNorm"
+  bottom: "r3_conv2"
+  top: "r3_conv2"
+}
+layer {
+  name: "r3_proj"
+  type: "Convolution"
+  bottom: "r2_sum18"
+  top: "r3_proj"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  convolution_param {
+    num_output: 64
+    pad: 0
+    kernel_size: 1
+    stride: 2
+    weight_filler {
+      type: "msra"
+    }
+  }
+}
+layer {
+  name: "r3_proj_bn"
+  type: "BatchNorm"
+  bottom: "r3_proj"
+  top: "r3_proj"
+  param {
+    lr_mult: 0
+    decay_mult: 0
+  }
+  param {
+    lr_mult: 0
+    decay_mult: 0
+  }
+  param {
+    lr_mult: 0
+    decay_mult: 0
+  }
+}
+layer {
+  name: "r3_sum1"
+  type: "Eltwise"
+  bottom: "r3_proj"
+  bottom: "r3_conv2"
+  top: "r3_sum1"
+  eltwise_param {
+    operation: SUM
+  }
+}
+layer {
+  name: "r3_relu2"
+  type: "RELU"
+  bottom: "r3_sum1"
+  top: "r3_sum1"
+}
+#ResBlock ending
+#ResBlock start
+layer {
+  name: "r3_conv3"
+  type: "Convolution"
+  bottom: "r3_sum1"
+  top: "r3_conv3"
+  convolution_param {
+    num_output: 64
+    kernel_size: 3
+    stride: 1
+    pad: 1
+  }
+}
+layer {
+  name: "r3_batch3"
+  type: "BatchNorm"
+  bottom: "r3_conv3"
+  top: "r3_conv3"
+}
+layer {
+  name: "r3_relu3"
+  type: "RELU"
+  bottom: "r3_conv3"
+  top: "r3_conv3"
+}
+layer {
+  name: "r3_conv4"
+  type: "Convolution"
+  bottom: "r3_conv3"
+  top: "r3_conv4"
+  convolution_param {
+    num_output: 64
+    kernel_size: 3
+    stride: 1
+    pad: 1
+  }
+}
+layer {
+  name: "r3_batch4"
+  type: "BatchNorm"
+  bottom: "r3_conv4"
+  top: "r3_conv4"
+}
+layer {
+  name: "r3_sum2"
+  type: "Eltwise"
+  bottom: "r3_sum1"
+  bottom: "r3_conv4"
+  top: "r3_sum2"
+  eltwise_param {
+    operation: SUM
+  }
+}
+layer {
+  name: "r3_relu4"
+  type: "RELU"
+  bottom: "r3_sum2"
+  top: "r3_sum2"
+}
+#ResBlock ending
+#ResBlock start
+layer {
+  name: "r3_conv5"
+  type: "Convolution"
+  bottom: "r3_sum2"
+  top: "r3_conv5"
+  convolution_param {
+    num_output: 64
+    kernel_size: 3
+    stride: 1
+    pad: 1
+  }
+}
+layer {
+  name: "r3_batch5"
+  type: "BatchNorm"
+  bottom: "r3_conv5"
+  top: "r3_conv5"
+}
+layer {
+  name: "r3_relu5"
+  type: "RELU"
+  bottom: "r3_conv5"
+  top: "r3_conv5"
+}
+layer {
+  name: "r3_conv6"
+  type: "Convolution"
+  bottom: "r3_conv5"
+  top: "r3_conv6"
+  convolution_param {
+    num_output: 64
+    kernel_size: 3
+    stride: 1
+    pad: 1
+  }
+}
+layer {
+  name: "r3_batch6"
+  type: "BatchNorm"
+  bottom: "r3_conv6"
+  top: "r3_conv6"
+}
+layer {
+  name: "r3_sum3"
+  type: "Eltwise"
+  bottom: "r3_sum2"
+  bottom: "r3_conv6"
+  top: "r3_sum3"
+  eltwise_param {
+    operation: SUM
+  }
+}
+layer {
+  name: "r3_relu6"
+  type: "RELU"
+  bottom: "r3_sum3"
+  top: "r3_sum3"
+}
+#ResBlock ending
+#ResBlock start
+layer {
+  name: "r3_conv7"
+  type: "Convolution"
+  bottom: "r3_sum3"
+  top: "r3_conv7"
+  convolution_param {
+    num_output: 64
+    kernel_size: 3
+    stride: 1
+    pad: 1
+  }
+}
+layer {
+  name: "r3_batch7"
+  type: "BatchNorm"
+  bottom: "r3_conv7"
+  top: "r3_conv7"
+}
+layer {
+  name: "r3_relu7"
+  type: "RELU"
+  bottom: "r3_conv7"
+  top: "r3_conv7"
+}
+layer {
+  name: "r3_conv8"
+  type: "Convolution"
+  bottom: "r3_conv7"
+  top: "r3_conv8"
+  convolution_param {
+    num_output: 64
+    kernel_size: 3
+    stride: 1
+    pad: 1
+  }
+}
+layer {
+  name: "r3_batch8"
+  type: "BatchNorm"
+  bottom: "r3_conv8"
+  top: "r3_conv8"
+}
+layer {
+  name: "r3_sum4"
+  type: "Eltwise"
+  bottom: "r3_sum3"
+  bottom: "r3_conv8"
+  top: "r3_sum4"
+  eltwise_param {
+    operation: SUM
+  }
+}
+layer {
+  name: "r3_relu8"
+  type: "RELU"
+  bottom: "r3_sum4"
+  top: "r3_sum4"
+}
+#ResBlock ending
+#ResBlock start
+layer {
+  name: "r3_conv9"
+  type: "Convolution"
+  bottom: "r3_sum4"
+  top: "r3_conv9"
+  convolution_param {
+    num_output: 64
+    kernel_size: 3
+    stride: 1
+    pad: 1
+  }
+}
+layer {
+  name: "r3_batch9"
+  type: "BatchNorm"
+  bottom: "r3_conv9"
+  top: "r3_conv9"
+}
+layer {
+  name: "r3_relu9"
+  type: "RELU"
+  bottom: "r3_conv9"
+  top: "r3_conv9"
+}
+layer {
+  name: "r3_conv10"
+  type: "Convolution"
+  bottom: "r3_conv9"
+  top: "r3_conv10"
+  convolution_param {
+    num_output: 64
+    kernel_size: 3
+    stride: 1
+    pad: 1
+  }
+}
+layer {
+  name: "r3_batch10"
+  type: "BatchNorm"
+  bottom: "r3_conv10"
+  top: "r3_conv10"
+}
+layer {
+  name: "r3_sum5"
+  type: "Eltwise"
+  bottom: "r3_sum4"
+  bottom: "r3_conv10"
+  top: "r3_sum5"
+  eltwise_param {
+    operation: SUM
+  }
+}
+layer {
+  name: "r3_relu10"
+  type: "RELU"
+  bottom: "r3_sum5"
+  top: "r3_sum5"
+}
+#ResBlock ending
+#ResBlock start
+layer {
+  name: "r3_conv11"
+  type: "Convolution"
+  bottom: "r3_sum5"
+  top: "r3_conv11"
+  convolution_param {
+    num_output: 64
+    kernel_size: 3
+    stride: 1
+    pad: 1
+  }
+}
+layer {
+  name: "r3_batch11"
+  type: "BatchNorm"
+  bottom: "r3_conv11"
+  top: "r3_conv11"
+}
+layer {
+  name: "r3_relu11"
+  type: "RELU"
+  bottom: "r3_conv11"
+  top: "r3_conv11"
+}
+layer {
+  name: "r3_conv12"
+  type: "Convolution"
+  bottom: "r3_conv11"
+  top: "r3_conv12"
+  convolution_param {
+    num_output: 64
+    kernel_size: 3
+    stride: 1
+    pad: 1
+  }
+}
+layer {
+  name: "r3_batch12"
+  type: "BatchNorm"
+  bottom: "r3_conv12"
+  top: "r3_conv12"
+}
+layer {
+  name: "r3_sum6"
+  type: "Eltwise"
+  bottom: "r3_sum5"
+  bottom: "r3_conv12"
+  top: "r3_sum6"
+  eltwise_param {
+    operation: SUM
+  }
+}
+layer {
+  name: "r3_relu12"
+  type: "RELU"
+  bottom: "r3_sum6"
+  top: "r3_sum6"
+}
+#ResBlock ending
+#ResBlock start
+layer {
+  name: "r3_conv13"
+  type: "Convolution"
+  bottom: "r3_sum6"
+  top: "r3_conv13"
+  convolution_param {
+    num_output: 64
+    kernel_size: 3
+    stride: 1
+    pad: 1
+  }
+}
+layer {
+  name: "r3_batch13"
+  type: "BatchNorm"
+  bottom: "r3_conv13"
+  top: "r3_conv13"
+}
+layer {
+  name: "r3_relu13"
+  type: "RELU"
+  bottom: "r3_conv13"
+  top: "r3_conv13"
+}
+layer {
+  name: "r3_conv14"
+  type: "Convolution"
+  bottom: "r3_conv13"
+  top: "r3_conv14"
+  convolution_param {
+    num_output: 64
+    kernel_size: 3
+    stride: 1
+    pad: 1
+  }
+}
+layer {
+  name: "r3_batch14"
+  type: "BatchNorm"
+  bottom: "r3_conv14"
+  top: "r3_conv14"
+}
+layer {
+  name: "r3_sum7"
+  type: "Eltwise"
+  bottom: "r3_sum6"
+  bottom: "r3_conv14"
+  top: "r3_sum7"
+  eltwise_param {
+    operation: SUM
+  }
+}
+layer {
+  name: "r3_relu14"
+  type: "RELU"
+  bottom: "r3_sum7"
+  top: "r3_sum7"
+}
+#ResBlock ending
+#ResBlock start
+layer {
+  name: "r3_conv15"
+  type: "Convolution"
+  bottom: "r3_sum7"
+  top: "r3_conv15"
+  convolution_param {
+    num_output: 64
+    kernel_size: 3
+    stride: 1
+    pad: 1
+  }
+}
+layer {
+  name: "r3_batch15"
+  type: "BatchNorm"
+  bottom: "r3_conv15"
+  top: "r3_conv15"
+}
+layer {
+  name: "r3_relu15"
+  type: "RELU"
+  bottom: "r3_conv15"
+  top: "r3_conv15"
+}
+layer {
+  name: "r3_conv16"
+  type: "Convolution"
+  bottom: "r3_conv15"
+  top: "r3_conv16"
+  convolution_param {
+    num_output: 64
+    kernel_size: 3
+    stride: 1
+    pad: 1
+  }
+}
+layer {
+  name: "r3_batch16"
+  type: "BatchNorm"
+  bottom: "r3_conv16"
+  top: "r3_conv16"
+}
+layer {
+  name: "r3_sum8"
+  type: "Eltwise"
+  bottom: "r3_sum7"
+  bottom: "r3_conv16"
+  top: "r3_sum8"
+  eltwise_param {
+    operation: SUM
+  }
+}
+layer {
+  name: "r3_relu16"
+  type: "RELU"
+  bottom: "r3_sum8"
+  top: "r3_sum8"
+}
+#ResBlock ending
+#ResBlock start
+layer {
+  name: "r3_conv17"
+  type: "Convolution"
+  bottom: "r3_sum8"
+  top: "r3_conv17"
+  convolution_param {
+    num_output: 64
+    kernel_size: 3
+    stride: 1
+    pad: 1
+  }
+}
+layer {
+  name: "r3_batch17"
+  type: "BatchNorm"
+  bottom: "r3_conv17"
+  top: "r3_conv17"
+}
+layer {
+  name: "r3_relu17"
+  type: "RELU"
+  bottom: "r3_conv17"
+  top: "r3_conv17"
+}
+layer {
+  name: "r3_conv18"
+  type: "Convolution"
+  bottom: "r3_conv17"
+  top: "r3_conv18"
+  convolution_param {
+    num_output: 64
+    kernel_size: 3
+    stride: 1
+    pad: 1
+  }
+}
+layer {
+  name: "r3_batch18"
+  type: "BatchNorm"
+  bottom: "r3_conv18"
+  top: "r3_conv18"
+}
+layer {
+  name: "r3_sum9"
+  type: "Eltwise"
+  bottom: "r3_sum8"
+  bottom: "r3_conv18"
+  top: "r3_sum9"
+  eltwise_param {
+    operation: SUM
+  }
+}
+layer {
+  name: "r3_relu18"
+  type: "RELU"
+  bottom: "r3_sum9"
+  top: "r3_sum9"
+}
+#ResBlock ending
+#ResBlock start
+layer {
+  name: "r3_conv19"
+  type: "Convolution"
+  bottom: "r3_sum9"
+  top: "r3_conv19"
+  convolution_param {
+    num_output: 64
+    kernel_size: 3
+    stride: 1
+    pad: 1
+  }
+}
+layer {
+  name: "r3_batch19"
+  type: "BatchNorm"
+  bottom: "r3_conv19"
+  top: "r3_conv19"
+}
+layer {
+  name: "r3_relu19"
+  type: "RELU"
+  bottom: "r3_conv19"
+  top: "r3_conv19"
+}
+layer {
+  name: "r3_conv20"
+  type: "Convolution"
+  bottom: "r3_conv19"
+  top: "r3_conv20"
+  convolution_param {
+    num_output: 64
+    kernel_size: 3
+    stride: 1
+    pad: 1
+  }
+}
+layer {
+  name: "r3_batch20"
+  type: "BatchNorm"
+  bottom: "r3_conv20"
+  top: "r3_conv20"
+}
+layer {
+  name: "r3_sum10"
+  type: "Eltwise"
+  bottom: "r3_sum9"
+  bottom: "r3_conv20"
+  top: "r3_sum10"
+  eltwise_param {
+    operation: SUM
+  }
+}
+layer {
+  name: "r3_relu20"
+  type: "RELU"
+  bottom: "r3_sum10"
+  top: "r3_sum10"
+}
+#ResBlock ending
+#ResBlock start
+layer {
+  name: "r3_conv21"
+  type: "Convolution"
+  bottom: "r3_sum10"
+  top: "r3_conv21"
+  convolution_param {
+    num_output: 64
+    kernel_size: 3
+    stride: 1
+    pad: 1
+  }
+}
+layer {
+  name: "r3_batch21"
+  type: "BatchNorm"
+  bottom: "r3_conv21"
+  top: "r3_conv21"
+}
+layer {
+  name: "r3_relu21"
+  type: "RELU"
+  bottom: "r3_conv21"
+  top: "r3_conv21"
+}
+layer {
+  name: "r3_conv22"
+  type: "Convolution"
+  bottom: "r3_conv21"
+  top: "r3_conv22"
+  convolution_param {
+    num_output: 64
+    kernel_size: 3
+    stride: 1
+    pad: 1
+  }
+}
+layer {
+  name: "r3_batch22"
+  type: "BatchNorm"
+  bottom: "r3_conv22"
+  top: "r3_conv22"
+}
+layer {
+  name: "r3_sum11"
+  type: "Eltwise"
+  bottom: "r3_sum10"
+  bottom: "r3_conv22"
+  top: "r3_sum11"
+  eltwise_param {
+    operation: SUM
+  }
+}
+layer {
+  name: "r3_relu22"
+  type: "RELU"
+  bottom: "r3_sum11"
+  top: "r3_sum11"
+}
+#ResBlock ending
+#ResBlock start
+layer {
+  name: "r3_conv23"
+  type: "Convolution"
+  bottom: "r3_sum11"
+  top: "r3_conv23"
+  convolution_param {
+    num_output: 64
+    kernel_size: 3
+    stride: 1
+    pad: 1
+  }
+}
+layer {
+  name: "r3_batch23"
+  type: "BatchNorm"
+  bottom: "r3_conv23"
+  top: "r3_conv23"
+}
+layer {
+  name: "r3_relu23"
+  type: "RELU"
+  bottom: "r3_conv23"
+  top: "r3_conv23"
+}
+layer {
+  name: "r3_conv24"
+  type: "Convolution"
+  bottom: "r3_conv23"
+  top: "r3_conv24"
+  convolution_param {
+    num_output: 64
+    kernel_size: 3
+    stride: 1
+    pad: 1
+  }
+}
+layer {
+  name: "r3_batch24"
+  type: "BatchNorm"
+  bottom: "r3_conv24"
+  top: "r3_conv24"
+}
+layer {
+  name: "r3_sum12"
+  type: "Eltwise"
+  bottom: "r3_sum11"
+  bottom: "r3_conv24"
+  top: "r3_sum12"
+  eltwise_param {
+    operation: SUM
+  }
+}
+layer {
+  name: "r3_relu24"
+  type: "RELU"
+  bottom: "r3_sum12"
+  top: "r3_sum12"
+}
+#ResBlock ending
+#ResBlock start
+layer {
+  name: "r3_conv25"
+  type: "Convolution"
+  bottom: "r3_sum12"
+  top: "r3_conv25"
+  convolution_param {
+    num_output: 64
+    kernel_size: 3
+    stride: 1
+    pad: 1
+  }
+}
+layer {
+  name: "r3_batch25"
+  type: "BatchNorm"
+  bottom: "r3_conv25"
+  top: "r3_conv25"
+}
+layer {
+  name: "r3_relu25"
+  type: "RELU"
+  bottom: "r3_conv25"
+  top: "r3_conv25"
+}
+layer {
+  name: "r3_conv26"
+  type: "Convolution"
+  bottom: "r3_conv25"
+  top: "r3_conv26"
+  convolution_param {
+    num_output: 64
+    kernel_size: 3
+    stride: 1
+    pad: 1
+  }
+}
+layer {
+  name: "r3_batch26"
+  type: "BatchNorm"
+  bottom: "r3_conv26"
+  top: "r3_conv26"
+}
+layer {
+  name: "r3_sum13"
+  type: "Eltwise"
+  bottom: "r3_sum12"
+  bottom: "r3_conv26"
+  top: "r3_sum13"
+  eltwise_param {
+    operation: SUM
+  }
+}
+layer {
+  name: "r3_relu26"
+  type: "RELU"
+  bottom: "r3_sum13"
+  top: "r3_sum13"
+}
+#ResBlock ending
+#ResBlock start
+layer {
+  name: "r3_conv27"
+  type: "Convolution"
+  bottom: "r3_sum13"
+  top: "r3_conv27"
+  convolution_param {
+    num_output: 64
+    kernel_size: 3
+    stride: 1
+    pad: 1
+  }
+}
+layer {
+  name: "r3_batch27"
+  type: "BatchNorm"
+  bottom: "r3_conv27"
+  top: "r3_conv27"
+}
+layer {
+  name: "r3_relu27"
+  type: "RELU"
+  bottom: "r3_conv27"
+  top: "r3_conv27"
+}
+layer {
+  name: "r3_conv28"
+  type: "Convolution"
+  bottom: "r3_conv27"
+  top: "r3_conv28"
+  convolution_param {
+    num_output: 64
+    kernel_size: 3
+    stride: 1
+    pad: 1
+  }
+}
+layer {
+  name: "r3_batch28"
+  type: "BatchNorm"
+  bottom: "r3_conv28"
+  top: "r3_conv28"
+}
+layer {
+  name: "r3_sum14"
+  type: "Eltwise"
+  bottom: "r3_sum13"
+  bottom: "r3_conv28"
+  top: "r3_sum14"
+  eltwise_param {
+    operation: SUM
+  }
+}
+layer {
+  name: "r3_relu28"
+  type: "RELU"
+  bottom: "r3_sum14"
+  top: "r3_sum14"
+}
+#ResBlock ending
+#ResBlock start
+layer {
+  name: "r3_conv29"
+  type: "Convolution"
+  bottom: "r3_sum14"
+  top: "r3_conv29"
+  convolution_param {
+    num_output: 64
+    kernel_size: 3
+    stride: 1
+    pad: 1
+  }
+}
+layer {
+  name: "r3_batch29"
+  type: "BatchNorm"
+  bottom: "r3_conv29"
+  top: "r3_conv29"
+}
+layer {
+  name: "r3_relu29"
+  type: "RELU"
+  bottom: "r3_conv29"
+  top: "r3_conv29"
+}
+layer {
+  name: "r3_conv30"
+  type: "Convolution"
+  bottom: "r3_conv29"
+  top: "r3_conv30"
+  convolution_param {
+    num_output: 64
+    kernel_size: 3
+    stride: 1
+    pad: 1
+  }
+}
+layer {
+  name: "r3_batch30"
+  type: "BatchNorm"
+  bottom: "r3_conv30"
+  top: "r3_conv30"
+}
+layer {
+  name: "r3_sum15"
+  type: "Eltwise"
+  bottom: "r3_sum14"
+  bottom: "r3_conv30"
+  top: "r3_sum15"
+  eltwise_param {
+    operation: SUM
+  }
+}
+layer {
+  name: "r3_relu30"
+  type: "RELU"
+  bottom: "r3_sum15"
+  top: "r3_sum15"
+}
+#ResBlock ending
+#ResBlock start
+layer {
+  name: "r3_conv31"
+  type: "Convolution"
+  bottom: "r3_sum15"
+  top: "r3_conv31"
+  convolution_param {
+    num_output: 64
+    kernel_size: 3
+    stride: 1
+    pad: 1
+  }
+}
+layer {
+  name: "r3_batch31"
+  type: "BatchNorm"
+  bottom: "r3_conv31"
+  top: "r3_conv31"
+}
+layer {
+  name: "r3_relu31"
+  type: "RELU"
+  bottom: "r3_conv31"
+  top: "r3_conv31"
+}
+layer {
+  name: "r3_conv32"
+  type: "Convolution"
+  bottom: "r3_conv31"
+  top: "r3_conv32"
+  convolution_param {
+    num_output: 64
+    kernel_size: 3
+    stride: 1
+    pad: 1
+  }
+}
+layer {
+  name: "r3_batch32"
+  type: "BatchNorm"
+  bottom: "r3_conv32"
+  top: "r3_conv32"
+}
+layer {
+  name: "r3_sum16"
+  type: "Eltwise"
+  bottom: "r3_sum15"
+  bottom: "r3_conv32"
+  top: "r3_sum16"
+  eltwise_param {
+    operation: SUM
+  }
+}
+layer {
+  name: "r3_relu32"
+  type: "RELU"
+  bottom: "r3_sum16"
+  top: "r3_sum16"
+}
+#ResBlock ending
+#ResBlock start
+layer {
+  name: "r3_conv33"
+  type: "Convolution"
+  bottom: "r3_sum16"
+  top: "r3_conv33"
+  convolution_param {
+    num_output: 64
+    kernel_size: 3
+    stride: 1
+    pad: 1
+  }
+}
+layer {
+  name: "r3_batch33"
+  type: "BatchNorm"
+  bottom: "r3_conv33"
+  top: "r3_conv33"
+}
+layer {
+  name: "r3_relu33"
+  type: "RELU"
+  bottom: "r3_conv33"
+  top: "r3_conv33"
+}
+layer {
+  name: "r3_conv34"
+  type: "Convolution"
+  bottom: "r3_conv33"
+  top: "r3_conv34"
+  convolution_param {
+    num_output: 64
+    kernel_size: 3
+    stride: 1
+    pad: 1
+  }
+}
+layer {
+  name: "r3_batch34"
+  type: "BatchNorm"
+  bottom: "r3_conv34"
+  top: "r3_conv34"
+}
+layer {
+  name: "r3_sum17"
+  type: "Eltwise"
+  bottom: "r3_sum16"
+  bottom: "r3_conv34"
+  top: "r3_sum17"
+  eltwise_param {
+    operation: SUM
+  }
+}
+layer {
+  name: "r3_relu34"
+  type: "RELU"
+  bottom: "r3_sum17"
+  top: "r3_sum17"
+}
+#ResBlock ending
+#ResBlock start
+layer {
+  name: "r3_conv35"
+  type: "Convolution"
+  bottom: "r3_sum17"
+  top: "r3_conv35"
+  convolution_param {
+    num_output: 64
+    kernel_size: 3
+    stride: 1
+    pad: 1
+  }
+}
+layer {
+  name: "r3_batch35"
+  type: "BatchNorm"
+  bottom: "r3_conv35"
+  top: "r3_conv35"
+}
+layer {
+  name: "r3_relu35"
+  type: "RELU"
+  bottom: "r3_conv35"
+  top: "r3_conv35"
+}
+layer {
+  name: "r3_conv36"
+  type: "Convolution"
+  bottom: "r3_conv35"
+  top: "r3_conv36"
+  convolution_param {
+    num_output: 64
+    kernel_size: 3
+    stride: 1
+    pad: 1
+  }
+}
+layer {
+  name: "r3_batch36"
+  type: "BatchNorm"
+  bottom: "r3_conv36"
+  top: "r3_conv36"
+}
+layer {
+  name: "r3_sum18"
+  type: "Eltwise"
+  bottom: "r3_sum17"
+  bottom: "r3_conv36"
+  top: "r3_sum18"
+  eltwise_param {
+    operation: SUM
+  }
+}
+layer {
+  name: "r3_relu36"
+  type: "RELU"
+  bottom: "r3_sum18"
+  top: "r3_sum18"
+}
+#ResBlock ending
+
+
+#Res3 ending
+layer {
+  name: "avg_pool"
+  type: "Pooling"
+  bottom: "r3_sum18"
+  top: "avg_pool"
+  pooling_param {
+    pool: AVE
+    kernel_size: 6
+    stride: 1
+  }
+}
+layer {
+  name: "output"
+  type: "InnerProduct"
+  bottom: "avg_pool"
+  top: "output"
+  inner_product_param {
+    num_output: 10
+  }
+}

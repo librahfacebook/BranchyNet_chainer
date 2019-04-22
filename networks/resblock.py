@@ -6,13 +6,13 @@ Residual block构建：通过shortcut connection实现，通过shortcut将这个
 from chainer.backend import cuda
 import chainer.functions as F
 import chainer.links as L
-import math, chainer, copy
+import chainer
 
 
 class ResBlock(chainer.Chain):
 
     def __init__(self, in_channels, out_channels, ksize=1, stride=1):
-        w = math.sqrt(2)
+        w = chainer.initializers.HeNormal()
         super(ResBlock, self).__init__(
             conv1=L.Convolution2D(in_channels, out_channels, 3, stride=stride, pad=1, initialW=w),
             bn1=L.BatchNormalization(out_channels),  # 对卷积函数的输出进行批处理归一化
